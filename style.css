@@ -1,6 +1,3 @@
-/* ===================================
-   CSS Reset & Base Styles
-   =================================== */
 * {
     margin: 0;
     padding: 0;
@@ -8,15 +5,17 @@
 }
 
 :root {
-    --primary-color: #5A3E2B;
-    --secondary-color: #F5EFE6;
-    --accent-color: #C19A6B;
-    --navbar-bg: #2B1E14;
-    --dark-bg: #1A1108;
-    --white: #ffffff;
-    --text-dark: #2B1E14;
-    --text-light: #F5EFE6;
-    --border-color: #E0D5C7;
+    --primary-dark: #4E342E;
+    --primary: #6D4C41;
+    --secondary: #A1887F;
+    --accent: #D7B899;
+    --background: #FFF8F2;
+    --text-dark: #3A2F2F;
+    --text-light: #FFFFFF;
+    --border-color: #E6DDD5;
+    --shadow-light: rgba(78, 52, 46, 0.1);
+    --shadow-medium: rgba(78, 52, 46, 0.15);
+    --shadow-dark: rgba(78, 52, 46, 0.25);
 }
 
 html {
@@ -28,7 +27,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
-    background-color: var(--secondary-color);
+    background-color: var(--background);
 }
 
 img {
@@ -55,9 +54,6 @@ button {
     transition: all 0.3s ease;
 }
 
-/* ===================================
-   Reusable Components
-   =================================== */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -71,7 +67,7 @@ button {
 
 .section-header h2 {
     font-size: 2.8rem;
-    color: var(--primary-color);
+    color: var(--primary-dark);
     margin-bottom: 15px;
     font-weight: 700;
     position: relative;
@@ -86,27 +82,26 @@ button {
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+    background: linear-gradient(90deg, var(--accent), var(--primary));
     border-radius: 2px;
 }
 
 .header-line {
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+    background: linear-gradient(90deg, var(--accent), var(--primary));
     margin: 0 auto 20px;
     border-radius: 2px;
 }
 
 .section-header p {
-    color: #6B5D52;
+    color: var(--primary);
     font-size: 1.15rem;
     margin-top: 25px;
 }
 
-/* Image Placeholder Styling */
 .image-placeholder {
-    background: linear-gradient(135deg, var(--primary-color) 0%, #4A3221 100%);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -117,24 +112,22 @@ button {
     font-size: 0.9rem;
 }
 
-/* ===================================
-   Navigation Bar
-   =================================== */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--navbar-bg);
-    box-shadow: 0 4px 20px rgba(43, 30, 20, 0.3);
+    background-color: var(--primary-dark);
+    box-shadow: 0 4px 20px rgba(78, 52, 46, 0.3);
     z-index: 1000;
     transition: all 0.3s ease;
 }
 
 .navbar.scrolled {
-    box-shadow: 0 4px 30px rgba(43, 30, 20, 0.5);
-    background-color: rgba(43, 30, 20, 0.98);
+    background-color: rgba(62, 39, 35, 0.95);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
+
 
 .nav-container {
     max-width: 1200px;
@@ -142,11 +135,11 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 20px;
+    padding: 6px 20px;
 }
 
 .nav-logo a {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-light);
     letter-spacing: 1.5px;
@@ -161,7 +154,7 @@ button {
 }
 
 .nav-logo a:hover {
-    color: var(--accent-color);
+    color: var(--accent);
 }
 
 .nav-menu {
@@ -173,9 +166,9 @@ button {
 .nav-link {
     color: var(--text-light);
     font-weight: 500;
-    padding: 10px 0;
+    padding: 4px 0;
     position: relative;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
 }
 
 .nav-link::after {
@@ -185,7 +178,7 @@ button {
     left: 0;
     width: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+    background: linear-gradient(90deg, var(--accent), var(--secondary));
     transition: width 0.3s ease;
     border-radius: 2px;
 }
@@ -196,10 +189,9 @@ button {
 }
 
 .nav-link:hover {
-    color: var(--accent-color);
+    color: var(--accent);
 }
 
-/* Dropdown Menu */
 .dropdown {
     position: relative;
 }
@@ -208,7 +200,7 @@ button {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: rgba(43, 30, 20, 0.98);
+    background-color: rgba(78, 52, 46, 0.98);
     min-width: 180px;
     padding: 15px 0;
     border-radius: 8px;
@@ -217,7 +209,7 @@ button {
     transform: translateY(-10px);
     transition: all 0.3s ease;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    border-top: 3px solid var(--accent-color);
+    border-top: 3px solid var(--accent);
 }
 
 .dropdown:hover .dropdown-menu {
@@ -234,17 +226,17 @@ button {
 }
 
 .dropdown-menu li a:hover {
-    background-color: rgba(193, 154, 107, 0.15);
-    color: var(--accent-color);
+    background-color: rgba(215, 184, 153, 0.15);
+    color: var(--accent);
     padding-left: 30px;
 }
 
-/* Hamburger Menu */
 .hamburger {
     display: none;
     flex-direction: column;
     gap: 6px;
     cursor: pointer;
+    background: transparent;
 }
 
 .hamburger span {
@@ -267,13 +259,10 @@ button {
     transform: rotate(-45deg) translate(8px, -8px);
 }
 
-/* ===================================
-   Hero Section
-   =================================== */
 .hero {
     position: relative;
     height: 100vh;
-    background: linear-gradient(135deg, var(--primary-color) 0%, #4A3221 50%, var(--navbar-bg) 100%);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--secondary) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -289,8 +278,8 @@ button {
     width: 100%;
     height: 100%;
     background-image: 
-        repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(193, 154, 107, 0.05) 50px, rgba(193, 154, 107, 0.05) 51px),
-        repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(193, 154, 107, 0.05) 50px, rgba(193, 154, 107, 0.05) 51px);
+        repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(215, 184, 153, 0.05) 50px, rgba(215, 184, 153, 0.05) 51px),
+        repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(215, 184, 153, 0.05) 50px, rgba(215, 184, 153, 0.05) 51px);
     opacity: 0.4;
 }
 
@@ -300,7 +289,7 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(ellipse at center, rgba(43, 30, 20, 0.4), rgba(26, 17, 8, 0.7));
+    background: radial-gradient(ellipse at center, rgba(78, 52, 46, 0.4), rgba(58, 47, 47, 0.7));
 }
 
 .hero-content {
@@ -337,21 +326,21 @@ button {
     margin-bottom: 45px;
     font-weight: 300;
     letter-spacing: 0.5px;
-    color: var(--secondary-color);
+    color: var(--background);
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 .cta-button {
     display: inline-block;
     padding: 20px 50px;
-    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
-    color: var(--white);
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    color: var(--text-dark);
     font-size: 1.15rem;
     font-weight: 700;
     border-radius: 50px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    box-shadow: 0 8px 25px rgba(193, 154, 107, 0.4);
+    box-shadow: 0 8px 25px rgba(215, 184, 153, 0.4);
     border: 2px solid transparent;
     position: relative;
     overflow: hidden;
@@ -374,16 +363,13 @@ button {
 
 .cta-button:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 35px rgba(193, 154, 107, 0.6);
-    border-color: var(--secondary-color);
+    box-shadow: 0 12px 35px rgba(215, 184, 153, 0.6);
+    border-color: var(--background);
 }
 
-/* ===================================
-   About Section
-   =================================== */
 .about {
     padding: 120px 0;
-    background: linear-gradient(180deg, var(--secondary-color) 0%, #FFFBF5 100%);
+    background: linear-gradient(180deg, var(--background) 0%, #FFFDFB 100%);
 }
 
 .about-content {
@@ -395,13 +381,13 @@ button {
 
 .about-text h3 {
     font-size: 2.3rem;
-    color: var(--primary-color);
+    color: var(--primary-dark);
     margin-bottom: 25px;
     line-height: 1.3;
 }
 
 .about-text p {
-    color: #5D4E42;
+    color: var(--primary);
     margin-bottom: 20px;
     line-height: 1.9;
     font-size: 1.05rem;
@@ -417,27 +403,27 @@ button {
 .stat-item {
     text-align: center;
     padding: 30px 20px;
-    background: var(--white);
+    background: var(--text-light);
     border-radius: 12px;
-    border-top: 4px solid var(--accent-color);
-    box-shadow: 0 8px 25px rgba(90, 62, 43, 0.1);
+    border-top: 4px solid var(--accent);
+    box-shadow: 0 8px 25px var(--shadow-light);
     transition: all 0.3s ease;
 }
 
 .stat-item:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(90, 62, 43, 0.2);
+    box-shadow: 0 15px 35px var(--shadow-medium);
 }
 
 .stat-item h4 {
     font-size: 3rem;
-    color: var(--primary-color);
+    color: var(--primary-dark);
     margin-bottom: 10px;
     font-weight: 800;
 }
 
 .stat-item p {
-    color: #6B5D52;
+    color: var(--primary);
     font-weight: 600;
     font-size: 0.95rem;
     text-transform: uppercase;
@@ -447,16 +433,13 @@ button {
 .about-image .image-placeholder {
     height: 550px;
     border-radius: 15px;
-    box-shadow: 0 15px 40px rgba(90, 62, 43, 0.2);
-    border: 8px solid var(--white);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+    border: 8px solid var(--text-light);
 }
 
-/* ===================================
-   Services Section
-   =================================== */
 .services {
     padding: 120px 0;
-    background: linear-gradient(180deg, var(--primary-color) 0%, #4A3221 100%);
+    background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary) 100%);
     position: relative;
 }
 
@@ -468,7 +451,7 @@ button {
     width: 100%;
     height: 100%;
     background-image: 
-        repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(245, 239, 230, 0.02) 100px, rgba(245, 239, 230, 0.02) 101px);
+        repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(255, 248, 242, 0.02) 100px, rgba(255, 248, 242, 0.02) 101px);
     pointer-events: none;
 }
 
@@ -478,7 +461,7 @@ button {
 }
 
 .services .section-header h2::after {
-    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+    background: linear-gradient(90deg, var(--accent), var(--background));
 }
 
 .services-grid {
@@ -490,13 +473,13 @@ button {
 }
 
 .service-card {
-    background: var(--white);
+    background: var(--text-light);
     padding: 45px 35px;
     border-radius: 12px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border-top: 5px solid var(--accent-color);
+    border-top: 5px solid var(--accent);
     position: relative;
     overflow: hidden;
 }
@@ -508,7 +491,7 @@ button {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(193, 154, 107, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(215, 184, 153, 0.1), transparent);
     transition: left 0.5s ease;
 }
 
@@ -519,34 +502,31 @@ button {
 .service-card:hover {
     transform: translateY(-15px);
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
-    border-top-color: var(--primary-color);
+    border-top-color: var(--secondary);
 }
 
 .service-icon {
     font-size: 4rem;
     margin-bottom: 25px;
-    filter: drop-shadow(0 4px 8px rgba(90, 62, 43, 0.2));
+    filter: drop-shadow(0 4px 8px var(--shadow-light));
 }
 
 .service-card h3 {
     font-size: 1.6rem;
-    color: var(--primary-color);
+    color: var(--primary-dark);
     margin-bottom: 18px;
     font-weight: 700;
 }
 
 .service-card p {
-    color: #5D4E42;
+    color: var(--primary);
     line-height: 1.8;
     font-size: 1.02rem;
 }
 
-/* ===================================
-   Projects Section
-   =================================== */
 .projects {
     padding: 120px 0;
-    background: var(--secondary-color);
+    background: var(--background);
 }
 
 .projects-grid {
@@ -556,17 +536,17 @@ button {
 }
 
 .project-card {
-    background: var(--white);
+    background: var(--text-light);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(90, 62, 43, 0.12);
+    box-shadow: 0 8px 25px var(--shadow-light);
     transition: all 0.4s ease;
-    border-top: 5px solid var(--accent-color);
+    border-top: 5px solid var(--accent);
 }
 
 .project-card:hover {
     transform: translateY(-12px);
-    box-shadow: 0 18px 45px rgba(90, 62, 43, 0.25);
+    box-shadow: 0 18px 45px var(--shadow-dark);
 }
 
 .project-image .image-placeholder {
@@ -584,13 +564,13 @@ button {
 
 .project-info h3 {
     font-size: 1.5rem;
-    color: var(--primary-color);
+    color: var(--primary-dark);
     margin-bottom: 12px;
     font-weight: 700;
 }
 
 .project-info p {
-    color: #6B5D52;
+    color: var(--primary);
     margin-bottom: 20px;
     line-height: 1.7;
 }
@@ -598,20 +578,17 @@ button {
 .project-category {
     display: inline-block;
     padding: 8px 20px;
-    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
-    color: var(--white);
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    color: var(--text-dark);
     font-size: 0.9rem;
     border-radius: 25px;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
 
-/* ===================================
-   Blog Section
-   =================================== */
 .blog {
     padding: 120px 0;
-    background: linear-gradient(180deg, #FFFBF5 0%, var(--secondary-color) 100%);
+    background: #FFFFFF;
 }
 
 .blog-grid {
@@ -621,17 +598,17 @@ button {
 }
 
 .blog-card {
-    background: var(--white);
+    background: var(--text-light);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(90, 62, 43, 0.1);
+    box-shadow: 0 8px 25px var(--shadow-light);
     transition: all 0.4s ease;
-    border-top: 5px solid var(--accent-color);
+    border-top: 5px solid var(--accent);
 }
 
 .blog-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 18px 40px rgba(90, 62, 43, 0.2);
+    box-shadow: 0 18px 40px var(--shadow-medium);
 }
 
 .blog-image .image-placeholder {
@@ -648,7 +625,7 @@ button {
 }
 
 .blog-date {
-    color: var(--accent-color);
+    color: var(--accent);
     font-size: 0.95rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -657,20 +634,20 @@ button {
 
 .blog-content h3 {
     font-size: 1.5rem;
-    color: var(--primary-color);
+    color: var(--primary-dark);
     margin: 15px 0 18px;
     font-weight: 700;
     line-height: 1.4;
 }
 
 .blog-content p {
-    color: #5D4E42;
+    color: var(--primary);
     line-height: 1.8;
     margin-bottom: 18px;
 }
 
 .read-more {
-    color: var(--primary-color);
+    color: var(--secondary);
     font-weight: 700;
     display: inline-block;
     position: relative;
@@ -684,7 +661,7 @@ button {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--accent-color);
+    background: var(--accent);
     transition: width 0.3s ease;
 }
 
@@ -693,15 +670,12 @@ button {
 }
 
 .read-more:hover {
-    color: var(--accent-color);
+    color: var(--accent);
 }
 
-/* ===================================
-   Shop Section
-   =================================== */
 .shop {
     padding: 120px 0;
-    background: var(--primary-color);
+    background: var(--primary-dark);
     position: relative;
 }
 
@@ -713,7 +687,7 @@ button {
     width: 100%;
     height: 100%;
     background-image: 
-        repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(245, 239, 230, 0.03) 80px, rgba(245, 239, 230, 0.03) 81px);
+        repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255, 248, 242, 0.03) 80px, rgba(255, 248, 242, 0.03) 81px);
     pointer-events: none;
 }
 
@@ -723,7 +697,7 @@ button {
 }
 
 .shop .section-header h2::after {
-    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+    background: linear-gradient(90deg, var(--accent), var(--background));
 }
 
 .shop-grid {
@@ -735,12 +709,12 @@ button {
 }
 
 .product-card {
-    background: var(--white);
+    background: var(--text-light);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transition: all 0.4s ease;
-    border-top: 5px solid var(--accent-color);
+    border-top: 5px solid var(--accent);
 }
 
 .product-card:hover {
@@ -766,8 +740,8 @@ button {
     position: absolute;
     top: 20px;
     right: 20px;
-    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
-    color: var(--white);
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    color: var(--text-dark);
     padding: 8px 18px;
     border-radius: 25px;
     font-size: 0.85rem;
@@ -783,13 +757,13 @@ button {
 
 .product-info h3 {
     font-size: 1.4rem;
-    color: var(--primary-color);
+    color: var(--primary-dark);
     margin-bottom: 10px;
     font-weight: 700;
 }
 
 .product-specs {
-    color: #999;
+    color: var(--primary);
     font-size: 0.95rem;
     margin-bottom: 20px;
 }
@@ -805,33 +779,30 @@ button {
 
 .product-price {
     font-size: 1.8rem;
-    color: var(--primary-color);
+    color: var(--secondary);
     font-weight: 800;
 }
 
 .add-to-cart {
     padding: 12px 25px;
-    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
-    color: var(--white);
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    color: var(--text-dark);
     border-radius: 30px;
     font-weight: 700;
     font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 5px 15px rgba(193, 154, 107, 0.3);
+    box-shadow: 0 5px 15px rgba(215, 184, 153, 0.3);
 }
 
 .add-to-cart:hover {
     transform: scale(1.08);
-    box-shadow: 0 8px 20px rgba(193, 154, 107, 0.5);
+    box-shadow: 0 8px 20px rgba(215, 184, 153, 0.5);
 }
 
-/* ===================================
-   Contact Section
-   =================================== */
 .contact {
     padding: 120px 0;
-    background: linear-gradient(180deg, var(--secondary-color) 0%, #FFFBF5 100%);
+    background: linear-gradient(180deg, var(--background) 0%, #FFFDFB 100%);
 }
 
 .contact-wrapper {
@@ -842,13 +813,13 @@ button {
 
 .contact-info h3 {
     font-size: 2.3rem;
-    color: var(--primary-color);
+    color: var(--primary-dark);
     margin-bottom: 25px;
     font-weight: 700;
 }
 
 .contact-info > p {
-    color: #5D4E42;
+    color: var(--primary);
     line-height: 1.9;
     margin-bottom: 40px;
     font-size: 1.05rem;
@@ -859,42 +830,50 @@ button {
     gap: 25px;
     margin-bottom: 35px;
     padding: 25px;
-    background: var(--white);
+    background: var(--text-light);
     border-radius: 10px;
-    border-left: 5px solid var(--accent-color);
-    box-shadow: 0 5px 20px rgba(90, 62, 43, 0.08);
+    border-left: 5px solid var(--accent);
+    box-shadow: 0 5px 20px var(--shadow-light);
     transition: all 0.3s ease;
 }
 
 .info-item:hover {
     transform: translateX(10px);
-    box-shadow: 0 8px 25px rgba(90, 62, 43, 0.15);
+    box-shadow: 0 8px 25px var(--shadow-medium);
 }
 
 .info-icon {
     font-size: 2.2rem;
-    filter: drop-shadow(0 2px 5px rgba(90, 62, 43, 0.2));
+    filter: drop-shadow(0 2px 5px var(--shadow-light));
 }
 
 .info-item h4 {
-    color: var(--primary-color);
+    color: var(--primary-dark);
     margin-bottom: 8px;
     font-weight: 700;
     font-size: 1.1rem;
 }
 
 .info-item p {
-    color: #6B5D52;
+    color: var(--primary);
     line-height: 1.7;
 }
 
-/* Contact Form */
+.info-item a {
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+.info-item a:hover {
+    color: var(--accent);
+}
+
 .contact-form-wrapper {
-    background: var(--white);
+    background: var(--text-light);
     padding: 50px;
     border-radius: 15px;
-    box-shadow: 0 15px 40px rgba(90, 62, 43, 0.15);
-    border-top: 5px solid var(--accent-color);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+    border-top: 5px solid var(--accent);
 }
 
 .contact-form {
@@ -915,7 +894,7 @@ button {
 }
 
 .form-group label {
-    color: var(--primary-color);
+    color: var(--primary-dark);
     font-weight: 700;
     margin-bottom: 10px;
     font-size: 0.95rem;
@@ -931,28 +910,29 @@ button {
     font-family: inherit;
     font-size: 1rem;
     transition: all 0.3s ease;
-    background-color: var(--secondary-color);
+    background-color: var(--background);
+    color: var(--text-dark);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--accent-color);
-    background-color: var(--white);
-    box-shadow: 0 0 0 4px rgba(193, 154, 107, 0.1);
+    border-color: var(--accent);
+    background-color: var(--text-light);
+    box-shadow: 0 0 0 4px rgba(215, 184, 153, 0.1);
 }
 
 .submit-button {
     padding: 18px 50px;
-    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
-    color: var(--white);
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    color: var(--text-dark);
     border-radius: 50px;
     font-size: 1.1rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
     align-self: flex-start;
-    box-shadow: 0 8px 25px rgba(193, 154, 107, 0.3);
+    box-shadow: 0 8px 25px rgba(215, 184, 153, 0.3);
     position: relative;
     overflow: hidden;
 }
@@ -974,14 +954,11 @@ button {
 
 .submit-button:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 35px rgba(193, 154, 107, 0.5);
+    box-shadow: 0 12px 35px rgba(215, 184, 153, 0.5);
 }
 
-/* ===================================
-   Footer
-   =================================== */
 .footer {
-    background: linear-gradient(180deg, var(--dark-bg) 0%, #0D0805 100%);
+    background: linear-gradient(180deg, var(--text-dark) 0%, #2A2222 100%);
     color: var(--text-light);
     padding: 80px 0 30px;
     position: relative;
@@ -994,7 +971,7 @@ button {
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
 }
 
 .footer-content {
@@ -1007,14 +984,14 @@ button {
 .footer-section h3 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: var(--accent-color);
+    color: var(--accent);
     font-weight: 700;
 }
 
 .footer-section h4 {
     font-size: 1.3rem;
     margin-bottom: 20px;
-    color: var(--accent-color);
+    color: var(--accent);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -1037,20 +1014,20 @@ button {
 }
 
 .footer-section ul li a:hover {
-    color: var(--accent-color);
+    color: var(--accent);
     padding-left: 5px;
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 35px;
-    border-top: 1px solid rgba(193, 154, 107, 0.2);
+    border-top: 1px solid rgba(215, 184, 153, 0.2);
     color: var(--border-color);
     font-size: 0.95rem;
 }
 
 .footer-bottom a {
-    color: var(--accent-color);
+    color: var(--accent);
     font-weight: 600;
 }
 
@@ -1058,25 +1035,22 @@ button {
     text-decoration: underline;
 }
 
-/* ===================================
-   Scroll to Top Button
-   =================================== */
 .scroll-top {
     position: fixed;
     bottom: 35px;
     right: 35px;
     width: 55px;
     height: 55px;
-    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
-    color: var(--white);
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    color: var(--text-dark);
     border-radius: 50%;
     font-size: 1.6rem;
     display: none;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 20px rgba(193, 154, 107, 0.4);
+    box-shadow: 0 8px 20px rgba(215, 184, 153, 0.4);
     z-index: 999;
-    border: 3px solid var(--white);
+    border: 3px solid var(--text-light);
 }
 
 .scroll-top.active {
@@ -1085,14 +1059,10 @@ button {
 
 .scroll-top:hover {
     transform: translateY(-8px) scale(1.1);
-    box-shadow: 0 12px 30px rgba(193, 154, 107, 0.6);
+    box-shadow: 0 12px 30px rgba(215, 184, 153, 0.6);
 }
 
-/* ===================================
-   Responsive Design - Mobile
-   =================================== */
 @media (max-width: 968px) {
-    /* Navigation */
     .hamburger {
         display: flex;
     }
@@ -1100,9 +1070,9 @@ button {
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 75px;
+        top: 60px;
         flex-direction: column;
-        background-color: rgba(43, 30, 20, 0.98);
+        background-color: rgba(78, 52, 46, 0.98);
         width: 100%;
         text-align: center;
         transition: left 0.3s ease;
@@ -1118,7 +1088,7 @@ button {
 
     .nav-menu li {
         padding: 18px 0;
-        border-bottom: 1px solid rgba(193, 154, 107, 0.2);
+        border-bottom: 1px solid rgba(215, 184, 153, 0.2);
     }
 
     .dropdown-menu {
@@ -1126,11 +1096,10 @@ button {
         opacity: 1;
         visibility: visible;
         transform: none;
-        background-color: rgba(26, 17, 8, 0.95);
+        background-color: rgba(58, 47, 47, 0.95);
         margin-top: 15px;
     }
 
-    /* Hero */
     .hero-title {
         font-size: 3rem;
     }
@@ -1139,7 +1108,6 @@ button {
         font-size: 1.2rem;
     }
 
-    /* About */
     .about-content {
         grid-template-columns: 1fr;
         gap: 50px;
@@ -1149,7 +1117,6 @@ button {
         grid-template-columns: 1fr;
     }
 
-    /* Contact */
     .contact-wrapper {
         grid-template-columns: 1fr;
     }
@@ -1160,7 +1127,6 @@ button {
 }
 
 @media (max-width: 768px) {
-    /* Typography */
     .section-header h2 {
         font-size: 2.2rem;
     }
@@ -1169,45 +1135,37 @@ button {
         font-size: 2.5rem;
     }
 
-    /* Services Grid */
     .services-grid {
         grid-template-columns: 1fr;
     }
 
-    /* Projects Grid */
     .projects-grid {
         grid-template-columns: 1fr;
     }
 
-    /* Blog Grid */
     .blog-grid {
         grid-template-columns: 1fr;
     }
 
-    /* Shop Grid */
     .shop-grid {
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
 
-    /* Footer */
     .footer-content {
         grid-template-columns: 1fr;
         gap: 40px;
     }
 
-    /* Contact Form */
     .contact-form-wrapper {
         padding: 35px;
     }
 }
 
 @media (max-width: 480px) {
-    /* Container Padding */
     .container {
         padding: 0 15px;
     }
 
-    /* Hero */
     .hero-title {
         font-size: 2rem;
     }
@@ -1221,7 +1179,6 @@ button {
         font-size: 1rem;
     }
 
-    /* Section Padding */
     .about,
     .services,
     .projects,
@@ -1231,17 +1188,14 @@ button {
         padding: 80px 0;
     }
 
-    /* Shop Grid */
     .shop-grid {
         grid-template-columns: 1fr;
     }
 
-    /* Contact Form */
     .contact-form-wrapper {
         padding: 25px;
     }
 
-    /* Scroll Top Button */
     .scroll-top {
         width: 50px;
         height: 50px;
@@ -1249,7 +1203,6 @@ button {
         right: 25px;
     }
 
-    /* Footer */
     .footer {
         padding: 60px 0 25px;
     }
