@@ -112,6 +112,9 @@ button {
     font-size: 0.9rem;
 }
 
+/* ===================================
+   NAVBAR
+   =================================== */
 .navbar {
     position: fixed;
     top: 0;
@@ -121,15 +124,13 @@ button {
     box-shadow: 0 4px 20px rgba(47, 62, 47, 0.3);
     z-index: 1000;
     transition: all 0.3s ease;
-    height: 100px;
-    padding: 1.5rem 0;
+    padding: 0.5rem 0;
 }
 
 .navbar.scrolled {
     box-shadow: 0 4px 30px rgba(47, 62, 47, 0.5);
     background-color: rgba(47, 62, 47, 0.98);
-    height: 80px;
-    padding: 0.5rem 0;
+    padding: 0.4rem 0;
 }
 
 .nav-container {
@@ -138,8 +139,7 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 10px;
-    height: 100%;
+    padding: 8px 20px;
 }
 
 .nav-logo {
@@ -153,20 +153,17 @@ button {
     text-decoration: none;
 }
 
-/* Logo image styling */
 .logo-img {
-    height: 70px;
+    height: 85px;
     width: auto;
     transition: height 0.3s ease;
     object-fit: contain;
 }
 
-/* Logo size when navbar is scrolled */
 .navbar.scrolled .logo-img {
-    height: 55px;
+    height: 75px;
 }
 
-/* Maintain hover effect on the link container */
 .nav-logo a:hover {
     opacity: 0.85;
 }
@@ -273,6 +270,9 @@ button {
     transform: rotate(-45deg) translate(8px, -8px);
 }
 
+/* ===================================
+   HERO SECTION WITH SLIDESHOW
+   =================================== */
 .hero {
     position: relative;
     height: 100vh;
@@ -304,10 +304,10 @@ button {
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0;
-    animation: slideshow 25s infinite;
+    animation: slideshow 20s infinite;
 }
 
-/* Stagger the animations for each slide */
+/* Stagger animations for 4 slides (5 seconds each) */
 .hero-slide:nth-child(1) {
     animation-delay: 0s;
 }
@@ -324,22 +324,18 @@ button {
     animation-delay: 15s;
 }
 
-.hero-slide:nth-child(5) {
-    animation-delay: 20s;
-}
-
-/* Slideshow Animation */
+/* Slideshow Animation - Smooth Cross-Fade */
 @keyframes slideshow {
     0% {
         opacity: 0;
     }
-    4% {
+    5% {
         opacity: 1;
     }
-    20% {
+    25% {
         opacity: 1;
     }
-    24% {
+    30% {
         opacity: 0;
     }
     100% {
@@ -447,6 +443,9 @@ button {
     border-color: var(--background);
 }
 
+/* ===================================
+   ABOUT SECTION
+   =================================== */
 .about {
     padding: 120px 0;
     background: linear-gradient(180deg, var(--background) 0%, #FEFDFB 100%);
@@ -517,6 +516,9 @@ button {
     border: 8px solid var(--text-light);
 }
 
+/* ===================================
+   SERVICES SECTION
+   =================================== */
 .services {
     padding: 120px 0;
     background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary) 100%);
@@ -604,68 +606,9 @@ button {
     font-size: 1.02rem;
 }
 
-.projects {
-    padding: 120px 0;
-    background: var(--background);
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: 35px;
-}
-
-.project-card {
-    background: var(--text-light);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px var(--shadow-light);
-    transition: all 0.4s ease;
-    border-top: 5px solid var(--accent);
-}
-
-.project-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 18px 45px var(--shadow-dark);
-}
-
-.project-image .image-placeholder {
-    height: 280px;
-    transition: transform 0.4s ease;
-}
-
-.project-card:hover .project-image .image-placeholder {
-    transform: scale(1.05);
-}
-
-.project-info {
-    padding: 30px;
-}
-
-.project-info h3 {
-    font-size: 1.5rem;
-    color: var(--primary-dark);
-    margin-bottom: 12px;
-    font-weight: 700;
-}
-
-.project-info p {
-    color: var(--primary);
-    margin-bottom: 20px;
-    line-height: 1.7;
-}
-
-.project-category {
-    display: inline-block;
-    padding: 8px 20px;
-    background: linear-gradient(135deg, var(--accent), var(--secondary));
-    color: var(--text-light);
-    font-size: 0.9rem;
-    border-radius: 25px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
+/* ===================================
+   BLOG SECTION
+   =================================== */
 .blog {
     padding: 120px 0;
     background: linear-gradient(180deg, #FEFDFB 0%, var(--background) 100%);
@@ -753,6 +696,9 @@ button {
     color: var(--accent);
 }
 
+/* ===================================
+   SHOP SECTION
+   =================================== */
 .shop {
     padding: 120px 0;
     background: var(--primary-dark);
@@ -880,6 +826,9 @@ button {
     box-shadow: 0 8px 20px rgba(201, 166, 107, 0.5);
 }
 
+/* ===================================
+   CONTACT SECTION
+   =================================== */
 .contact {
     padding: 120px 0;
     background: linear-gradient(180deg, var(--background) 0%, #FEFDFB 100%);
@@ -1037,6 +986,9 @@ button {
     box-shadow: 0 12px 35px rgba(201, 166, 107, 0.5);
 }
 
+/* ===================================
+   FOOTER
+   =================================== */
 .footer {
     background: linear-gradient(180deg, var(--text-dark) 0%, #1A1A1A 100%);
     color: var(--text-light);
@@ -1115,6 +1067,9 @@ button {
     text-decoration: underline;
 }
 
+/* ===================================
+   SCROLL TO TOP BUTTON
+   =================================== */
 .scroll-top {
     position: fixed;
     bottom: 35px;
@@ -1142,6 +1097,9 @@ button {
     box-shadow: 0 12px 30px rgba(201, 166, 107, 0.6);
 }
 
+/* ===================================
+   RESPONSIVE MEDIA QUERIES
+   =================================== */
 @media (max-width: 968px) {
     .hamburger {
         display: flex;
@@ -1150,7 +1108,7 @@ button {
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 75px;
+        top: 90px;
         flex-direction: column;
         background-color: rgba(47, 62, 47, 0.98);
         width: 100%;
@@ -1205,13 +1163,13 @@ button {
         grid-template-columns: 1fr;
     }
 
-    /* Logo adjustments for tablet */
+    /* Adjusted logo size for tablet to prevent overlap */
     .logo-img {
-        height: 60px;
+        height: 70px;
     }
     
     .navbar.scrolled .logo-img {
-        height: 50px;
+        height: 60px;
     }
 }
 
@@ -1220,15 +1178,15 @@ button {
         font-size: 2.2rem;
     }
 
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
     .hero-title {
         font-size: 2.5rem;
     }
 
     .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .projects-grid {
         grid-template-columns: 1fr;
     }
 
@@ -1249,19 +1207,27 @@ button {
         padding: 35px;
     }
 
-    /* Logo adjustments for mobile */
+    /* Further reduced for mobile */
     .logo-img {
-        height: 55px;
+        height: 60px;
     }
     
     .navbar.scrolled .logo-img {
-        height: 45px;
+        height: 55px;
+    }
+    
+    .nav-menu {
+        top: 75px;
     }
 }
 
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
     }
 
     .hero-title {
@@ -1279,7 +1245,6 @@ button {
 
     .about,
     .services,
-    .projects,
     .blog,
     .shop,
     .contact {
@@ -1305,12 +1270,20 @@ button {
         padding: 60px 0 25px;
     }
 
-    /* Logo adjustments for small mobile */
+    /* Smallest screens - compact logo */
     .logo-img {
-        height: 50px;
+        height: 55px;
     }
     
     .navbar.scrolled .logo-img {
-        height: 40px;
+        height: 50px;
+    }
+    
+    .nav-container {
+        padding: 8px 15px;
+    }
+    
+    .nav-menu {
+        top: 70px;
     }
 }
