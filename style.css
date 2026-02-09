@@ -121,11 +121,15 @@ button {
     box-shadow: 0 4px 20px rgba(47, 62, 47, 0.3);
     z-index: 1000;
     transition: all 0.3s ease;
+    height: 100px;
+    padding: 1.5rem 0;
 }
 
 .navbar.scrolled {
     box-shadow: 0 4px 30px rgba(47, 62, 47, 0.5);
     background-color: rgba(47, 62, 47, 0.98);
+    height: 80px;
+    padding: 0.5rem 0;
 }
 
 .nav-container {
@@ -134,26 +138,37 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 20px;
+    padding: 5px 10px;
+    height: 100%;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
 }
 
 .nav-logo a {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--text-light);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    position: relative;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
-.nav-logo a::before {
-    content: '🪵';
-    margin-right: 10px;
-    font-size: 1.5rem;
+/* Logo image styling */
+.logo-img {
+    height: 70px;
+    width: auto;
+    transition: height 0.3s ease;
+    object-fit: contain;
 }
 
+/* Logo size when navbar is scrolled */
+.navbar.scrolled .logo-img {
+    height: 55px;
+}
+
+/* Maintain hover effect on the link container */
 .nav-logo a:hover {
-    color: var(--accent);
+    opacity: 0.85;
 }
 
 .nav-menu {
@@ -165,7 +180,7 @@ button {
 .nav-link {
     color: var(--text-light);
     font-weight: 500;
-    padding: 10px 0;
+    padding: 7px 0;
     position: relative;
     font-size: 1.05rem;
 }
@@ -261,7 +276,6 @@ button {
 .hero {
     position: relative;
     height: 100vh;
-    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--secondary) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -269,26 +283,84 @@ button {
     overflow: hidden;
 }
 
-.hero::before {
-    content: '';
+/* Hero Slideshow Container */
+.hero-slideshow {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
-        repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(201, 166, 107, 0.05) 50px, rgba(201, 166, 107, 0.05) 51px),
-        repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(201, 166, 107, 0.05) 50px, rgba(201, 166, 107, 0.05) 51px);
-    opacity: 0.4;
+    z-index: 0;
 }
 
+/* Individual Slide */
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    animation: slideshow 25s infinite;
+}
+
+/* Stagger the animations for each slide */
+.hero-slide:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.hero-slide:nth-child(2) {
+    animation-delay: 5s;
+}
+
+.hero-slide:nth-child(3) {
+    animation-delay: 10s;
+}
+
+.hero-slide:nth-child(4) {
+    animation-delay: 15s;
+}
+
+.hero-slide:nth-child(5) {
+    animation-delay: 20s;
+}
+
+/* Slideshow Animation */
+@keyframes slideshow {
+    0% {
+        opacity: 0;
+    }
+    4% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 1;
+    }
+    24% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Dark Overlay for Text Readability */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(ellipse at center, rgba(47, 62, 47, 0.4), rgba(43, 43, 43, 0.7));
+    background: linear-gradient(
+        135deg,
+        rgba(47, 62, 47, 0.7) 0%,
+        rgba(43, 43, 43, 0.6) 50%,
+        rgba(47, 62, 47, 0.7) 100%
+    );
+    z-index: 1;
 }
 
 .hero-content {
@@ -298,6 +370,15 @@ button {
     max-width: 950px;
     padding: 0 20px;
     animation: fadeInUp 1s ease-out;
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 50px;
+    line-height: 1.15;
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
+    letter-spacing: -1px;
 }
 
 @keyframes fadeInUp {
@@ -312,9 +393,9 @@ button {
 }
 
 .hero-title {
-    font-size: 4.5rem;
+    font-size: 3rem;
     font-weight: 800;
-    margin-bottom: 25px;
+    margin-bottom: 50px;
     line-height: 1.15;
     text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
     letter-spacing: -1px;
@@ -1123,6 +1204,15 @@ button {
     .form-row {
         grid-template-columns: 1fr;
     }
+
+    /* Logo adjustments for tablet */
+    .logo-img {
+        height: 60px;
+    }
+    
+    .navbar.scrolled .logo-img {
+        height: 50px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1157,6 +1247,15 @@ button {
 
     .contact-form-wrapper {
         padding: 35px;
+    }
+
+    /* Logo adjustments for mobile */
+    .logo-img {
+        height: 55px;
+    }
+    
+    .navbar.scrolled .logo-img {
+        height: 45px;
     }
 }
 
@@ -1204,5 +1303,14 @@ button {
 
     .footer {
         padding: 60px 0 25px;
+    }
+
+    /* Logo adjustments for small mobile */
+    .logo-img {
+        height: 50px;
+    }
+    
+    .navbar.scrolled .logo-img {
+        height: 40px;
     }
 }
