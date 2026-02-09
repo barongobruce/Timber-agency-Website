@@ -5,17 +5,17 @@
 }
 
 :root {
-    --primary-dark: #4E342E;
-    --primary: #6D4C41;
-    --secondary: #A1887F;
-    --accent: #D7B899;
-    --background: #FFF8F2;
-    --text-dark: #3A2F2F;
+    --primary-dark: #2F3E2F;
+    --primary: #4A5D3B;
+    --secondary: #8B5A2B;
+    --accent: #C9A66B;
+    --background: #F5F3EE;
+    --text-dark: #2B2B2B;
     --text-light: #FFFFFF;
-    --border-color: #E6DDD5;
-    --shadow-light: rgba(78, 52, 46, 0.1);
-    --shadow-medium: rgba(78, 52, 46, 0.15);
-    --shadow-dark: rgba(78, 52, 46, 0.25);
+    --border-color: #D9D5C7;
+    --shadow-light: rgba(47, 62, 47, 0.1);
+    --shadow-medium: rgba(47, 62, 47, 0.15);
+    --shadow-dark: rgba(47, 62, 47, 0.25);
 }
 
 html {
@@ -82,14 +82,14 @@ button {
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, var(--accent), var(--primary));
+    background: linear-gradient(90deg, var(--accent), var(--secondary));
     border-radius: 2px;
 }
 
 .header-line {
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, var(--accent), var(--primary));
+    background: linear-gradient(90deg, var(--accent), var(--secondary));
     margin: 0 auto 20px;
     border-radius: 2px;
 }
@@ -118,16 +118,15 @@ button {
     left: 0;
     width: 100%;
     background-color: var(--primary-dark);
-    box-shadow: 0 4px 20px rgba(78, 52, 46, 0.3);
+    box-shadow: 0 4px 20px rgba(47, 62, 47, 0.3);
     z-index: 1000;
     transition: all 0.3s ease;
 }
 
 .navbar.scrolled {
-    background-color: rgba(62, 39, 35, 0.95);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 30px rgba(47, 62, 47, 0.5);
+    background-color: rgba(47, 62, 47, 0.98);
 }
-
 
 .nav-container {
     max-width: 1200px;
@@ -135,11 +134,11 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6px 20px;
+    padding: 18px 20px;
 }
 
 .nav-logo a {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--text-light);
     letter-spacing: 1.5px;
@@ -166,9 +165,9 @@ button {
 .nav-link {
     color: var(--text-light);
     font-weight: 500;
-    padding: 4px 0;
+    padding: 10px 0;
     position: relative;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
 }
 
 .nav-link::after {
@@ -200,7 +199,7 @@ button {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: rgba(78, 52, 46, 0.98);
+    background-color: rgba(47, 62, 47, 0.98);
     min-width: 180px;
     padding: 15px 0;
     border-radius: 8px;
@@ -226,7 +225,7 @@ button {
 }
 
 .dropdown-menu li a:hover {
-    background-color: rgba(215, 184, 153, 0.15);
+    background-color: rgba(201, 166, 107, 0.15);
     color: var(--accent);
     padding-left: 30px;
 }
@@ -278,8 +277,8 @@ button {
     width: 100%;
     height: 100%;
     background-image: 
-        repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(215, 184, 153, 0.05) 50px, rgba(215, 184, 153, 0.05) 51px),
-        repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(215, 184, 153, 0.05) 50px, rgba(215, 184, 153, 0.05) 51px);
+        repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(201, 166, 107, 0.05) 50px, rgba(201, 166, 107, 0.05) 51px),
+        repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(201, 166, 107, 0.05) 50px, rgba(201, 166, 107, 0.05) 51px);
     opacity: 0.4;
 }
 
@@ -289,7 +288,7 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(ellipse at center, rgba(78, 52, 46, 0.4), rgba(58, 47, 47, 0.7));
+    background: radial-gradient(ellipse at center, rgba(47, 62, 47, 0.4), rgba(43, 43, 43, 0.7));
 }
 
 .hero-content {
@@ -334,13 +333,13 @@ button {
     display: inline-block;
     padding: 20px 50px;
     background: linear-gradient(135deg, var(--accent), var(--secondary));
-    color: var(--text-dark);
+    color: var(--text-light);
     font-size: 1.15rem;
     font-weight: 700;
     border-radius: 50px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    box-shadow: 0 8px 25px rgba(215, 184, 153, 0.4);
+    box-shadow: 0 8px 25px rgba(201, 166, 107, 0.4);
     border: 2px solid transparent;
     position: relative;
     overflow: hidden;
@@ -363,13 +362,13 @@ button {
 
 .cta-button:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 35px rgba(215, 184, 153, 0.6);
+    box-shadow: 0 12px 35px rgba(201, 166, 107, 0.6);
     border-color: var(--background);
 }
 
 .about {
     padding: 120px 0;
-    background: linear-gradient(180deg, var(--background) 0%, #FFFDFB 100%);
+    background: linear-gradient(180deg, var(--background) 0%, #FEFDFB 100%);
 }
 
 .about-content {
@@ -451,7 +450,7 @@ button {
     width: 100%;
     height: 100%;
     background-image: 
-        repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(255, 248, 242, 0.02) 100px, rgba(255, 248, 242, 0.02) 101px);
+        repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(245, 243, 238, 0.02) 100px, rgba(245, 243, 238, 0.02) 101px);
     pointer-events: none;
 }
 
@@ -491,7 +490,7 @@ button {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(215, 184, 153, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(201, 166, 107, 0.1), transparent);
     transition: left 0.5s ease;
 }
 
@@ -579,7 +578,7 @@ button {
     display: inline-block;
     padding: 8px 20px;
     background: linear-gradient(135deg, var(--accent), var(--secondary));
-    color: var(--text-dark);
+    color: var(--text-light);
     font-size: 0.9rem;
     border-radius: 25px;
     font-weight: 600;
@@ -588,7 +587,7 @@ button {
 
 .blog {
     padding: 120px 0;
-    background: #FFFFFF;
+    background: linear-gradient(180deg, #FEFDFB 0%, var(--background) 100%);
 }
 
 .blog-grid {
@@ -687,7 +686,7 @@ button {
     width: 100%;
     height: 100%;
     background-image: 
-        repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255, 248, 242, 0.03) 80px, rgba(255, 248, 242, 0.03) 81px);
+        repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(245, 243, 238, 0.03) 80px, rgba(245, 243, 238, 0.03) 81px);
     pointer-events: none;
 }
 
@@ -741,7 +740,7 @@ button {
     top: 20px;
     right: 20px;
     background: linear-gradient(135deg, var(--accent), var(--secondary));
-    color: var(--text-dark);
+    color: var(--text-light);
     padding: 8px 18px;
     border-radius: 25px;
     font-size: 0.85rem;
@@ -786,23 +785,23 @@ button {
 .add-to-cart {
     padding: 12px 25px;
     background: linear-gradient(135deg, var(--accent), var(--secondary));
-    color: var(--text-dark);
+    color: var(--text-light);
     border-radius: 30px;
     font-weight: 700;
     font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 5px 15px rgba(215, 184, 153, 0.3);
+    box-shadow: 0 5px 15px rgba(201, 166, 107, 0.3);
 }
 
 .add-to-cart:hover {
     transform: scale(1.08);
-    box-shadow: 0 8px 20px rgba(215, 184, 153, 0.5);
+    box-shadow: 0 8px 20px rgba(201, 166, 107, 0.5);
 }
 
 .contact {
     padding: 120px 0;
-    background: linear-gradient(180deg, var(--background) 0%, #FFFDFB 100%);
+    background: linear-gradient(180deg, var(--background) 0%, #FEFDFB 100%);
 }
 
 .contact-wrapper {
@@ -919,20 +918,20 @@ button {
     outline: none;
     border-color: var(--accent);
     background-color: var(--text-light);
-    box-shadow: 0 0 0 4px rgba(215, 184, 153, 0.1);
+    box-shadow: 0 0 0 4px rgba(201, 166, 107, 0.1);
 }
 
 .submit-button {
     padding: 18px 50px;
     background: linear-gradient(135deg, var(--accent), var(--secondary));
-    color: var(--text-dark);
+    color: var(--text-light);
     border-radius: 50px;
     font-size: 1.1rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
     align-self: flex-start;
-    box-shadow: 0 8px 25px rgba(215, 184, 153, 0.3);
+    box-shadow: 0 8px 25px rgba(201, 166, 107, 0.3);
     position: relative;
     overflow: hidden;
 }
@@ -954,11 +953,11 @@ button {
 
 .submit-button:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 35px rgba(215, 184, 153, 0.5);
+    box-shadow: 0 12px 35px rgba(201, 166, 107, 0.5);
 }
 
 .footer {
-    background: linear-gradient(180deg, var(--text-dark) 0%, #2A2222 100%);
+    background: linear-gradient(180deg, var(--text-dark) 0%, #1A1A1A 100%);
     color: var(--text-light);
     padding: 80px 0 30px;
     position: relative;
@@ -1021,7 +1020,7 @@ button {
 .footer-bottom {
     text-align: center;
     padding-top: 35px;
-    border-top: 1px solid rgba(215, 184, 153, 0.2);
+    border-top: 1px solid rgba(201, 166, 107, 0.2);
     color: var(--border-color);
     font-size: 0.95rem;
 }
@@ -1042,13 +1041,13 @@ button {
     width: 55px;
     height: 55px;
     background: linear-gradient(135deg, var(--accent), var(--secondary));
-    color: var(--text-dark);
+    color: var(--text-light);
     border-radius: 50%;
     font-size: 1.6rem;
     display: none;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 20px rgba(215, 184, 153, 0.4);
+    box-shadow: 0 8px 20px rgba(201, 166, 107, 0.4);
     z-index: 999;
     border: 3px solid var(--text-light);
 }
@@ -1059,7 +1058,7 @@ button {
 
 .scroll-top:hover {
     transform: translateY(-8px) scale(1.1);
-    box-shadow: 0 12px 30px rgba(215, 184, 153, 0.6);
+    box-shadow: 0 12px 30px rgba(201, 166, 107, 0.6);
 }
 
 @media (max-width: 968px) {
@@ -1070,9 +1069,9 @@ button {
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 60px;
+        top: 75px;
         flex-direction: column;
-        background-color: rgba(78, 52, 46, 0.98);
+        background-color: rgba(47, 62, 47, 0.98);
         width: 100%;
         text-align: center;
         transition: left 0.3s ease;
@@ -1088,7 +1087,7 @@ button {
 
     .nav-menu li {
         padding: 18px 0;
-        border-bottom: 1px solid rgba(215, 184, 153, 0.2);
+        border-bottom: 1px solid rgba(201, 166, 107, 0.2);
     }
 
     .dropdown-menu {
@@ -1096,7 +1095,7 @@ button {
         opacity: 1;
         visibility: visible;
         transform: none;
-        background-color: rgba(58, 47, 47, 0.95);
+        background-color: rgba(43, 43, 43, 0.95);
         margin-top: 15px;
     }
 
