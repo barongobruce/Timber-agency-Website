@@ -3,462 +3,375 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Urban Timber Suppliers - Premium timber and wood products supplier in Kenya. Specializing in Cypress, Bluegum, Gravellia timber, poles, door frames, and fascia boards.">
-    <meta name="keywords" content="timber supplier Kenya, cypress timber, bluegum timber, gravellia timber, wood products, door frames, fascia boards, poles, Nairobi timber">
-    <meta name="author" content="Urban Timber Suppliers">
-    <meta name="robots" content="index, follow">
-    <title>Urban Timber Suppliers - Quality Timber & Wood Products in Kenya</title>
+    <meta name="description" content="Urban Timber Suppliers - Quality Timber & Wood Products in Kenya">
+    <title>URBAN TIMBER SUPPLIERS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <nav class="navbar" id="navbar" aria-label="Main navigation">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <a href="#home" aria-label="Urban Timber Suppliers - Home">
-                        <img src="images/1 (13).png" alt="Urban Timber Suppliers Logo" class="logo-img">
-                    </a>
-                </div>
-                
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About Us</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#blog" class="nav-link">Blog</a></li>
-                    <li><a href="#shop" class="nav-link">Shop</a></li>
-                    <li><a href="#contact" class="nav-link">Contact Us</a></li>
-                </ul>
-                
-                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+        <nav>
+            <a href="#home"><img src="images/logo.png" alt="Urban Timber Suppliers Logo" class="logo"></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
             </div>
         </nav>
     </header>
 
-    <main>
-        <!-- HERO SECTION WITH SLIDESHOW -->
-        <section class="hero" id="home">
-            <!-- Background Slideshow Container -->
-            <div class="hero-slideshow">
-                <div class="hero-slide" style="background-image: url('images/1 (14).jpeg');"></div>
-                <div class="hero-slide" style="background-image: url('images/1 (15).jpeg');"></div>
-                <div class="hero-slide" style="background-image: url('images/1 (16).jpeg');"></div>
-                <div class="hero-slide" style="background-image: url('images/1 (19).jpeg');"></div>
-                <div class="hero-slide" style="background-image: url('images/1 (4).jpeg');"></div>
-            </div>
-            
-            <!-- Dark Overlay for Text Readability -->
-            <div class="hero-overlay"></div>
-            
-            <!-- Hero Content (Text & Button) -->
-            <div class="hero-content">
-                <h1>URBAN   TIMBER  SUPPLIERS</h1>
-                <a href="#contact" class="cta-button">Get a Quote</a>
-            </div>
-        </section>
+    <section id="home" class="hero">
+        <!-- Hero Background Slideshow -->
+        <div class="hero-slideshow">
+            <div class="hero-slide active" style="background-image: url('images/hero1.jpeg');"></div>
+            <div class="hero-slide" style="background-image: url('images/hero2.jpeg');"></div>
+            <div class="hero-slide" style="background-image: url('images/hero3.png');"></div>
+            <div class="hero-slide" style="background-image: url('images/hero4.jpeg');"></div>
+            <div class="hero-slide" style="background-image: url('images/hero5.png');"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>URBAN TIMBER SUPPLIERS</h1>
+            <a href="#contact" class="cta-btn">Get a Quote</a>
+        </div>
+    </section>
 
-        <section class="about" id="about" aria-labelledby="about-heading">
-            <div class="container">
-                <header class="section-header">
-                    <h2 id="about-heading">About Urban Timber Suppliers</h2>
-                    <div class="header-line" aria-hidden="true"></div>
-                </header>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>For over a decade, Urban Timber Suppliers has delivered top-quality timber for every project. We source the finest wood and work closely with builders, contractors, and homeowners to ensure perfect results every time</p>
-                        <div class="about-stats">
-                            <div class="stat-item">
-                                <h4>10<span aria-label="plus">+</span></h4>
-                                <p>Years Experience</p>
-                            </div>
-                            <div class="stat-item">
-                                <h4>1000<span aria-label="plus">+</span></h4>
-                                <p>Projects Completed</p>
-                            </div>
-                            <div class="stat-item">
-                                <h4>100<span aria-label="percent">%</span></h4>
-                                <p>Quality Guaranteed</p>
-                            </div>
-                        </div>
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Urban Timber Suppliers</h2>
+            <p>For over a decade, Urban Timber Suppliers has delivered top-quality timber for every project. We source the finest wood and work closely with builders, contractors, and homeowners to ensure perfect results every time</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>10+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1000+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Quality Guaranteed</p>
+                </div>
+            </div>
+            
+            <img src="images/about1.png" alt="Quality timber workshop interior" class="about-image">
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Premium Timber Products</h2>
+            <p class="section-subtitle">Explore our wide range of quality timber solutions</p>
+            
+            <div class="services-grid">
+                <!-- Pine -->
+                <div class="service-card">
+                    <span class="service-icon">🌲</span>
+                    <h3>Pine</h3>
+                    <p>Our premium Pine timber is perfect for furniture, construction, and other projects requiring versatile, high-quality wood.</p>
+                    <button class="view-gallery-btn" data-product="pine">View Gallery</button>
+                    <div class="gallery-thumbnails">
+                        <img src="images/pine1.jpeg" alt="Pine timber sample 1">
+                        <img src="images/pine2.jpeg" alt="Pine timber sample 2">
+                        <img src="images/pine3.jpeg" alt="Pine timber sample 3">
+                        <img src="images/pine4.jpeg" alt="Pine timber sample 4">
                     </div>
-                    <figure class="about-image">
-                        <img src="images/about-timber.png" alt="Quality timber workshop interior" class="about-img">
-                    </figure>
                 </div>
-            </div>
-        </section>
 
-        <section class="services" id="services" aria-labelledby="services-heading">
-            <div class="container">
-                <header class="section-header">
-                    <h2 id="services-heading">Our Products & Services</h2>
-                    <div class="header-line" aria-hidden="true"></div>
-                    <p>Comprehensive range of timber products for all your construction needs</p>
-                </header>
-                <div class="services-grid">
-                    <article class="service-card">
-                        <div class="service-icon" aria-hidden="true">🌲</div>
-                        <h3>Cypress Timber</h3>
-                        <p>Durable and naturally resistant to decay, perfect for outdoor applications and structural work.</p>
-                    </article>
-                    <article class="service-card">
-                        <div class="service-icon" aria-hidden="true">🪵</div>
-                        <h3>Bluegum Timber</h3>
-                        <p>Strong and versatile hardwood ideal for flooring, furniture, and construction projects.</p>
-                    </article>
-                    <article class="service-card">
-                        <div class="service-icon" aria-hidden="true">🌳</div>
-                        <h3>Gravellia Timber</h3>
-                        <p>Premium quality timber with excellent strength properties for demanding applications.</p>
-                    </article>
-                    <article class="service-card">
-                        <div class="service-icon" aria-hidden="true">📐</div>
-                        <h3>TNG Timber</h3>
-                        <p>Tongue and groove timber for seamless panel construction and wall cladding.</p>
-                    </article>
-                    <article class="service-card">
-                        <div class="service-icon" aria-hidden="true">⚡</div>
-                        <h3>Poles</h3>
-                        <p>Treated timber poles for fencing, decking support, and agricultural use.</p>
-                    </article>
-                    <article class="service-card">
-                        <div class="service-icon" aria-hidden="true">🔨</div>
-                        <h3>Quarter Round</h3>
-                        <p>Finishing mouldings to create professional edges and cover gaps in your projects.</p>
-                    </article>
-                    <article class="service-card">
-                        <div class="service-icon" aria-hidden="true">🏠</div>
-                        <h3>Fascia Boards</h3>
-                        <p>Quality fascia boards to protect and enhance your roofline aesthetics.</p>
-                    </article>
-                    <article class="service-card">
-                        <div class="service-icon" aria-hidden="true">🚪</div>
-                        <h3>Door Frames</h3>
-                        <p>Pre-made and custom door frames in various timber species and sizes.</p>
-                    </article>
-                    <article class="service-card">
-                        <div class="service-icon" aria-hidden="true">📦</div>
-                        <h3>General Timber Products</h3>
-                        <p>Wide selection of timber products including decking, cladding, and specialty items.</p>
-                    </article>
+                <!-- Cypress -->
+                <div class="service-card">
+                    <span class="service-icon">🌳</span>
+                    <h3>Cypress Timber</h3>
+                    <p>Durable and naturally resistant to decay, perfect for outdoor applications and structural work.</p>
+                    <button class="view-gallery-btn" data-product="cypress">View Gallery</button>
+                    <div class="gallery-thumbnails">
+                        <img src="images/cypress1.jpeg" alt="Cypress timber sample 1">
+                        <img src="images/cypress2.jpeg" alt="Cypress timber sample 2">
+                        <img src="images/cypress3.jpeg" alt="Cypress timber sample 3">
+                        <img src="images/cypress4.jpeg" alt="Cypress timber sample 4">
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <section class="products" id="products" aria-labelledby="products-heading">
-            <div class="container">
-                <header class="section-header">
-                    <h2 id="products-heading">Our Products</h2>
-                    <div class="header-line" aria-hidden="true"></div>
-                    <p>Browse our selection of premium timber products - Click to view samples</p>
-                </header>
-                <div class="products-grid">
-                    <!-- Product Card 1 - Cypress Timber Boards -->
-                    <article class="product-card">
-                        <figure class="product-image-container" data-product="cypress">
-                            <div class="product-image-wrapper">
-                                <img src="images/products/cypress-main.jpg" alt="Cypress timber boards product" class="product-main-image">
-                                <div class="product-overlay">
-                                    <span class="overlay-icon">🔍</span>
-                                    <span class="overlay-text">View Samples</span>
-                                </div>
-                            </div>
-                            <span class="product-badge">Popular</span>
-                            
-                            <!-- Hidden Gallery Images -->
-                            <div class="product-gallery" data-gallery="cypress">
-                                <img src="images/products/cypress-sample-1.jpg" alt="Cypress timber sample 1">
-                                <img src="images/products/cypress-sample-2.jpg" alt="Cypress timber sample 2">
-                                <img src="images/products/cypress-sample-3.jpg" alt="Cypress timber sample 3">
-                                <img src="images/products/cypress-sample-4.jpg" alt="Cypress timber sample 4">
-                            </div>
-                        </figure>
-                        <div class="product-info">
-                            <h3>Cypress Timber Boards</h3>
-                            <p class="product-specs">90mm x 45mm x 3.6m</p>
-                            <div class="product-footer">
-                                <span class="product-price" aria-label="Price: 45 dollars">$45.00</span>
-                                <button class="add-to-cart" aria-label="Add Cypress Timber Boards to cart">Add to Cart</button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Product Card 2 - Bluegum Hardwood -->
-                    <article class="product-card">
-                        <figure class="product-image-container" data-product="bluegum">
-                            <div class="product-image-wrapper">
-                                <img src="images/products/bluegum-main.jpg" alt="Bluegum hardwood product" class="product-main-image">
-                                <div class="product-overlay">
-                                    <span class="overlay-icon">🔍</span>
-                                    <span class="overlay-text">View Samples</span>
-                                </div>
-                            </div>
-                            
-                            <!-- Hidden Gallery Images -->
-                            <div class="product-gallery" data-gallery="bluegum">
-                                <img src="images/products/bluegum-sample-1.jpg" alt="Bluegum timber sample 1">
-                                <img src="images/products/bluegum-sample-2.jpg" alt="Bluegum timber sample 2">
-                                <img src="images/products/bluegum-sample-3.jpg" alt="Bluegum timber sample 3">
-                                <img src="images/products/bluegum-sample-4.jpg" alt="Bluegum timber sample 4">
-                            </div>
-                        </figure>
-                        <div class="product-info">
-                            <h3>Bluegum Hardwood</h3>
-                            <p class="product-specs">100mm x 50mm x 4.2m</p>
-                            <div class="product-footer">
-                                <span class="product-price" aria-label="Price: 62 dollars">$62.00</span>
-                                <button class="add-to-cart" aria-label="Add Bluegum Hardwood to cart">Add to Cart</button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Product Card 3 - Gravellia Premium -->
-                    <article class="product-card">
-                        <figure class="product-image-container" data-product="gravellia">
-                            <div class="product-image-wrapper">
-                                <img src="images/products/gravellia-main.jpg" alt="Gravellia timber product" class="product-main-image">
-                                <div class="product-overlay">
-                                    <span class="overlay-icon">🔍</span>
-                                    <span class="overlay-text">View Samples</span>
-                                </div>
-                            </div>
-                            <span class="product-badge">Premium</span>
-                            
-                            <!-- Hidden Gallery Images -->
-                            <div class="product-gallery" data-gallery="gravellia">
-                                <img src="images/products/gravellia-sample-1.jpg" alt="Gravellia timber sample 1">
-                                <img src="images/products/gravellia-sample-2.jpg" alt="Gravellia timber sample 2">
-                                <img src="images/products/gravellia-sample-3.jpg" alt="Gravellia timber sample 3">
-                                <img src="images/products/gravellia-sample-4.jpg" alt="Gravellia timber sample 4">
-                            </div>
-                        </figure>
-                        <div class="product-info">
-                            <h3>Gravellia Premium</h3>
-                            <p class="product-specs">120mm x 50mm x 4.8m</p>
-                            <div class="product-footer">
-                                <span class="product-price" aria-label="Price: 78 dollars">$78.00</span>
-                                <button class="add-to-cart" aria-label="Add Gravellia Premium to cart">Add to Cart</button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Product Card 4 - TNG Timber -->
-                    <article class="product-card">
-                        <figure class="product-image-container" data-product="tng">
-                            <div class="product-image-wrapper">
-                                <img src="images/products/tng-main.jpg" alt="TNG timber product" class="product-main-image">
-                                <div class="product-overlay">
-                                    <span class="overlay-icon">🔍</span>
-                                    <span class="overlay-text">View Samples</span>
-                                </div>
-                            </div>
-                            
-                            <!-- Hidden Gallery Images -->
-                            <div class="product-gallery" data-gallery="tng">
-                                <img src="images/products/tng-sample-1.jpg" alt="TNG timber sample 1">
-                                <img src="images/products/tng-sample-2.jpg" alt="TNG timber sample 2">
-                                <img src="images/products/tng-sample-3.jpg" alt="TNG timber sample 3">
-                                <img src="images/products/tng-sample-4.jpg" alt="TNG timber sample 4">
-                            </div>
-                        </figure>
-                        <div class="product-info">
-                            <h3>TNG Timber</h3>
-                            <p class="product-specs">95mm x 40mm x 3.6m</p>
-                            <div class="product-footer">
-                                <span class="product-price" aria-label="Price: 52 dollars">$52.00</span>
-                                <button class="add-to-cart" aria-label="Add TNG Timber to cart">Add to Cart</button>
-                            </div>
-                        </div>
-                    </article>
+                <!-- Bluegum -->
+                <div class="service-card">
+                    <span class="service-icon">🪵</span>
+                    <h3>Bluegum Timber</h3>
+                    <p>Strong and versatile hardwood ideal for flooring, furniture, and construction projects requiring superior strength.</p>
+                    <button class="view-gallery-btn" data-product="bluegum">View Gallery</button>
+                    <div class="gallery-thumbnails">
+                        <img src="images/bluegum1.jpeg" alt="Bluegum timber sample 1">
+                        <img src="images/bluegum2.jpeg" alt="Bluegum timber sample 2">
+                        <img src="images/bluegum3.jpeg" alt="Bluegum timber sample 3">
+                        <img src="images/bluegum4.jpeg" alt="Bluegum timber sample 4">
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- LIGHTBOX MODAL -->
-        <div class="lightbox-modal" id="lightboxModal" aria-hidden="true" role="dialog" aria-modal="true">
-            <div class="lightbox-overlay"></div>
-            <div class="lightbox-container">
-                <button class="lightbox-close" id="lightboxClose" aria-label="Close gallery">
-                    <span>&times;</span>
-                </button>
-                <div class="lightbox-content">
-                    <h3 class="lightbox-title" id="lightboxTitle">Product Samples</h3>
-                    <div class="lightbox-grid" id="lightboxGrid">
-                        <!-- Gallery images will be inserted here dynamically -->
+                <!-- Gravellia -->
+                <div class="service-card">
+                    <span class="service-icon">🌿</span>
+                    <h3>Gravellia Timber</h3>
+                    <p>Premium quality timber with excellent strength properties for demanding applications and fine woodworking.</p>
+                    <button class="view-gallery-btn" data-product="gravellia">View Gallery</button>
+                    <div class="gallery-thumbnails">
+                        <img src="images/gravellia1.jpeg" alt="Gravellia timber sample 1">
+                        <img src="images/gravellia2.jpeg" alt="Gravellia timber sample 2">
+                        <img src="images/gravellia3.jpeg" alt="Gravellia timber sample 3">
+                        <img src="images/gravellia4.jpeg" alt="Gravellia timber sample 4">
+                    </div>
+                </div>
+
+                <!-- TNG -->
+                <div class="service-card">
+                    <span class="service-icon">📐</span>
+                    <h3>TNG Timber</h3>
+                    <p>Tongue and groove timber for seamless panel construction, wall cladding, and professional finishing.</p>
+                    <button class="view-gallery-btn" data-product="tng">View Gallery</button>
+                    <div class="gallery-thumbnails">
+                        <img src="images/tng1.jpeg" alt="TNG timber sample 1">
+                        <img src="images/tng2.jpeg" alt="TNG timber sample 2">
+                        <img src="images/tng3.jpeg" alt="TNG timber sample 3">
+                        <img src="images/tng4.jpeg" alt="TNG timber sample 4">
+                    </div>
+                </div>
+
+                <!-- Round Poles -->
+                <div class="service-card">
+                    <span class="service-icon">⚡</span>
+                    <h3>Round Poles</h3>
+                    <p>Treated timber poles for fencing, decking support, agricultural use, and structural applications.</p>
+                    <button class="view-gallery-btn" data-product="roundpoles">View Gallery</button>
+                    <div class="gallery-thumbnails">
+                        <img src="images/roundpoles1.jpeg" alt="Timber poles sample 1">
+                        <img src="images/roundpoles2.jpeg" alt="Timber poles sample 2">
+                        <img src="images/roundpoles3.jpeg" alt="Timber poles sample 3">
+                        <img src="images/roundpoles4.jpeg" alt="Timber poles sample 4">
+                    </div>
+                </div>
+
+                <!-- Quarter Round -->
+                <div class="service-card">
+                    <span class="service-icon">🔨</span>
+                    <h3>Quarter Round</h3>
+                    <p>Finishing mouldings to create professional edges and cover gaps in your construction projects.</p>
+                    <button class="view-gallery-btn" data-product="quarterround">View Gallery</button>
+                    <div class="gallery-thumbnails">
+                        <img src="images/quarterround1.jpeg" alt="Quarter round sample 1">
+                        <img src="images/quarterround2.jpeg" alt="Quarter round sample 2">
+                        <img src="images/quarterround3.jpeg" alt="Quarter round sample 3">
+                        <img src="images/quarterround4.jpeg" alt="Quarter round sample 4">
+                    </div>
+                </div>
+
+                <!-- Fascia Boards -->
+                <div class="service-card">
+                    <span class="service-icon">🏠</span>
+                    <h3>Fascia Boards</h3>
+                    <p>Quality fascia boards to protect and enhance your roofline aesthetics with lasting durability.</p>
+                    <button class="view-gallery-btn" data-product="fasciaboards">View Gallery</button>
+                    <div class="gallery-thumbnails">
+                        <img src="images/fasciaboards1.jpeg" alt="Fascia boards sample 1">
+                        <img src="images/fasciaboards2.jpeg" alt="Fascia boards sample 2">
+                        <img src="images/fasciaboards3.jpeg" alt="Fascia boards sample 3">
+                        <img src="images/fasciaboards4.jpeg" alt="Fascia boards sample 4">
+                    </div>
+                </div>
+
+                <!-- Door Frames -->
+                <div class="service-card">
+                    <span class="service-icon">🚪</span>
+                    <h3>Door Frames</h3>
+                    <p>Pre-made and custom door frames in various timber species and sizes for perfect installations.</p>
+                    <button class="view-gallery-btn" data-product="doorframes">View Gallery</button>
+                    <div class="gallery-thumbnails">
+                        <img src="images/doorframes1.jpeg" alt="Door frames sample 1">
+                        <img src="images/doorframes2.jpeg" alt="Door frames sample 2">
+                        <img src="images/doorframes3.jpeg" alt="Door frames sample 3">
+                        <img src="images/doorframes4.jpeg" alt="Door frames sample 4">
+                    </div>
+                </div>
+
+                <!-- Cornice -->
+                <div class="service-card">
+                    <span class="service-icon">📦</span>
+                    <h3>Cornice</h3>
+                    <p>Our premium cornices add the perfect finishing touch to any ceiling or wall, combining style with lasting quality.</p>
+                    <button class="view-gallery-btn" data-product="cornice">View Gallery</button>
+                    <div class="gallery-thumbnails">
+                        <img src="images/cornice1.jpeg" alt="Cornice sample 1">
+                        <img src="images/cornice2.jpeg" alt="Cornice sample 2">
+                        <img src="images/cornice3.jpeg" alt="Cornice sample 3">
+                        <img src="images/cornice4.jpeg" alt="Cornice sample 4">
+                    </div>
+                </div>
+
+                <!-- Doors -->
+                <div class="service-card">
+                    <span class="service-icon">🚪</span>
+                    <h3>Doors</h3>
+                    <p>Crafted for style and strength, our premium doors bring elegance, security, and lasting quality to every space.</p>
+                    <button class="view-gallery-btn" data-product="doors">View Gallery</button>
+                    <div class="gallery-thumbnails">
+                        <img src="images/doors1.jpeg" alt="Doors sample 1">
+                        <img src="images/doors2.jpeg" alt="Doors sample 2">
+                        <img src="images/doors3.jpeg" alt="Doors sample 3">
+                        <img src="images/doors4.jpeg" alt="Doors sample 4">
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-         <section id="blog" class="blog">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Latest From The Yard</h2>
-                    <p>Stories of quality, community, and the journey of our timber.</p>
-                </div>
-                
-                <div class="blog-grid">
-                    <article class="blog-card">
-                        <div class="blog-image">
-                            <img src="images/1 (12).png" alt="Urban Timber Delivery Arrival">
-                        </div>
-                        <div class="blog-content">
-                            <span class="blog-date">Aug 5, 2025</span>
-                            <h3>Efficient Delivery to Your Site</h3>
-                            <p>Our logistics team delivers countrywide and payments made after delivery depending with your order in perfect condition.</p>
-                            <a href="#" class="read-more"></a>
-                        </div>
-                    </article>
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <h3 class="modal-title">Gallery</h3>
+            <button class="prev">‹</button>
+            <img class="modal-image" src="" alt="Service gallery image">
+            <div class="image-counter">1 / 4</div>
+            <button class="next">›</button>
+        </div>
+    </div>
 
-                    <article class="blog-card">
-                        <div class="blog-image">
-                            <img src="images/1 (11).png" alt="Happy customers receiving timber products">
-                        </div>
-                        <div class="blog-content">
-                            <span class="blog-date">Feb 28, 2023</span>
-                            <h3>Supporting Local Carpenters</h3>
-                            <p>We take pride in being the preferred supplier for Nairobi's finest furniture makers and construction firms.</p>
-                            <a href="#" class="read-more"></a>
-                        </div>
-                    </article>
-
-                    <article class="blog-card">
-                        <div class="blog-image">
-                            <img src="images/1 (10).png" alt="High quality wood product close up">
-                        </div>
-                        <div class="blog-content">
-                            <span class="blog-date">Jan 15, 2024</span>
-                            <h3>Reliable for all construction needs</h3>
-                            <p>We are committed to providing timber that meets the highest standards of quality and durability for all construction projects.</p>
-                            <a href="#" class="read-more"></a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact" id="contact" aria-labelledby="contact-heading">
-            <div class="container">
-                <header class="section-header">
-                    <h2 id="contact-heading">Contact Us</h2>
-                    <div class="header-line" aria-hidden="true"></div>
-                    <p>Get in touch for quotes, inquiries, or expert advice</p>
-                </header>
-                <div class="contact-wrapper">
-                    <div class="contact-info">
-                        <h3>Get In Touch</h3>
-                        <p>Whether you're planning a small home project or a large commercial build, our team is here to help you find the perfect timber products.</p>
-                        <address>
-                            <div class="info-item">
-                                <div class="info-icon" aria-hidden="true">📍</div>
-                                <div>
-                                    <h4>Location</h4>
-                                    <p>Kangundo Road<br>Nairobi, Kenya</p>
-                                </div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-icon" aria-hidden="true">📞</div>
-                                <div>
-                                    <h4>Phone</h4>
-                                    <p><a href="tel:+254724217164">+254724217164</a><br>24hrs</p>
-                                </div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-icon" aria-hidden="true">✉️</div>
-                                <div>
-                                    <h4>Email</h4>
-                                    <p><a href="mailto:nyatundochristopher@gmail.com">nyatundochristopher@gmail.com</a></p>
-                                </div>
-                            </div>
-                        </address>
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2>Latest From The Yard</h2>
+            <p class="section-subtitle">Stories of quality, community, and the journey of our timber.</p>
+            
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <img src="images/blog1.png" alt="Urban Timber Delivery Arrival">
+                    <div class="blog-content">
+                        <span class="blog-date">Aug 5, 2025</span>
+                        <h3>Efficient Delivery to Your Site</h3>
+                        <p>Our logistics team delivers countrywide and payments made after delivery depending with your order in perfect condition.</p>
                     </div>
-                    <div class="contact-form-wrapper">
-                        <form class="contact-form" id="contactForm" action="#" method="post">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="name">Full Name *</label>
-                                    <input type="text" id="name" name="name" required aria-required="true">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email Address *</label>
-                                    <input type="email" id="email" name="email" required aria-required="true">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="phone">Phone Number</label>
-                                    <input type="tel" id="phone" name="phone">
-                                </div>
-                                <div class="form-group">
-                                    <label for="subject">Subject *</label>
-                                    <input type="text" id="subject" name="subject" required aria-required="true">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message *</label>
-                                <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
-                            </div>
-                            <button type="submit" class="submit-button">Send Message</button>
-                        </form>
+                </article>
+
+                <article class="blog-card">
+                    <img src="images/blog2.png" alt="Happy customers receiving timber products">
+                    <div class="blog-content">
+                        <span class="blog-date">Feb 28, 2023</span>
+                        <h3>Supporting Local Carpenters</h3>
+                        <p>We take pride in being the preferred supplier for Nairobi's finest furniture makers and construction firms.</p>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <img src="images/blog3.png" alt="High quality wood product close up">
+                    <div class="blog-content">
+                        <span class="blog-date">Jan 15, 2024</span>
+                        <h3>Reliable for all construction needs</h3>
+                        <p>We are committed to providing timber that meets the highest standards of quality and durability for all construction projects.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p class="section-subtitle">Get in touch for quotes, inquiries, or expert advice</p>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Whether you're planning a small home project or a large commercial build, our team is here to help you find the perfect timber products.</p>
+                    
+                    <div class="info-item">
+                        <span class="icon">📍</span>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Kangundo Road<br>Nairobi, Kenya</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="icon">📞</span>
+                        <div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+254724217164">+254724217164</a><br></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="icon">✉️</span>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:nyatundochristopher@gmail.com">nyatundochristopher@gmail.com</a></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
 
-    <footer class="footer">
+                <form class="contact-form">
+                    <input type="text" name="name" placeholder="Full Name *" required>
+                    <input type="email" name="email" placeholder="Email Address *" required>
+                    <input type="tel" name="phone" placeholder="Phone Number">
+                    <input type="text" name="subject" placeholder="Subject *" required>
+                    <textarea name="message" rows="5" placeholder="Message *" required></textarea>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
         <div class="container">
             <div class="footer-content">
-                <section class="footer-section">
+                <div class="footer-col">
                     <h3>Urban Timber Suppliers</h3>
                     <p>Your trusted partner for premium quality timber and wood products. Building excellence since 2015.</p>
-                </section>
-                <section class="footer-section">
+                </div>
+
+                <div class="footer-col">
                     <h4>Quick Links</h4>
-                    <nav aria-label="Footer quick links">
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#about">About Us</a></li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#shop">Shop</a></li>
-                        </ul>
-                    </nav>
-                </section>
-                <section class="footer-section">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
                     <h4>Products</h4>
-                    <nav aria-label="Footer product links">
-                        <ul>
-                            <li><a href="#services">Cypress Timber</a></li>
-                            <li><a href="#services">Bluegum Timber</a></li>
-                            <li><a href="#services">Gravellia Timber</a></li>
-                            <li><a href="#services">TNG Timber</a></li>
-                            <li><a href="#services">Poles</a></li>
-                            <li><a href="#services">Door Frames</a></li>
-                            <li><a href="#services">Fascia Boards</a></li>
-                        </ul>
-                    </nav>
-                </section>
-                <section class="footer-section">
+                    <ul>
+                        <li><a href="#services">Cypress Timber</a></li>
+                        <li><a href="#services">Bluegum Timber</a></li>
+                        <li><a href="#services">Gravellia Timber</a></li>
+                        <li><a href="#services">TNG Timber</a></li>
+                        <li><a href="#services">Poles</a></li>
+                        <li><a href="#services">Door Frames</a></li>
+                        <li><a href="#services">Fascia Boards</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
                     <h4>Contact</h4>
-                    <address>
-                        <ul>
-                            <li>📍 Kangundo Road, Nairobi</li>
-                            <li>📞 <a href="tel:+254724217164">+254724217164</a></li>
-                            <li>✉️ <a href="mailto:nyatundochristopher@gmail.com">nyatundochristopher@gmail.com</a></p>
-                        </ul>
-                    </address>
-                </section>
+                    <ul>
+                        <li>📍 Kangundo Road, Nairobi</li>
+                        <li>📞 <a href="tel:+254724217164">+254724217164</a></li>
+                        <li>✉️ <a href="mailto:nyatundochristopher@gmail.com">nyatundochristopher@gmail.com</a></li>
+                    </ul>
+                </div>
             </div>
+
             <div class="footer-bottom">
                 <p>&copy; 2026 Urban Timber Suppliers. All rights reserved. | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
             </div>
         </div>
     </footer>
 
-    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+    <a href="#home" class="back-to-top" id="backToTop">↑</a>
 
     <script src="script.js"></script>
 </body>

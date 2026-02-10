@@ -1,228 +1,166 @@
-// ===================================
-// DOM Elements
-// ===================================
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('navMenu');
-const navLinks = document.querySelectorAll('.nav-link');
-const navbar = document.getElementById('navbar');
-const scrollTopBtn = document.getElementById('scrollTop');
-const contactForm = document.getElementById('contactForm');
-const addToCartButtons = document.querySelectorAll('.add-to-cart');
-
-// Lightbox Elements
-const lightboxModal = document.getElementById('lightboxModal');
-const lightboxClose = document.getElementById('lightboxClose');
-const lightboxTitle = document.getElementById('lightboxTitle');
-const lightboxGrid = document.getElementById('lightboxGrid');
-const productImageContainers = document.querySelectorAll('.product-image-container');
-
-// ===================================
 // Mobile Navigation Toggle
-// ===================================
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+const burger = document.querySelector('.burger');
+const nav = document.querySelector('.nav-links');
+const header = document.querySelector('header');
+
+burger.addEventListener('click', () => {
+    nav.classList.toggle('active');
+    burger.classList.toggle('active');
 });
 
-// Close mobile menu when clicking on a nav link
+// Close mobile menu when clicking on a link
+const navLinks = document.querySelectorAll('.nav-links a');
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+        nav.classList.remove('active');
+        burger.classList.remove('active');
     });
 });
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    }
-});
-
-// ===================================
-// Navbar Scroll Effect
-// ===================================
+// Navbar scroll effect - adds background when scrolling
 window.addEventListener('scroll', () => {
     if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
+        header.classList.add('scrolled');
     } else {
-        navbar.classList.remove('scrolled');
+        header.classList.remove('scrolled');
     }
 });
 
-// ===================================
-// Smooth Scrolling for Navigation Links
-// ===================================
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href');
+// Hero Background Slideshow
+const slides = document.querySelectorAll('.hero-slide');
+let currentSlide = 0;
+
+function nextSlide() {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+}
+
+// Change slide every 5 seconds
+setInterval(nextSlide, 5000);
+
+// Gallery Modal Functionality
+const modal = document.getElementById('galleryModal');
+const modalImg = document.querySelector('.modal-image');
+const modalTitle = document.querySelector('.modal-title');
+const closeBtn = document.querySelector('.close');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+const imageCounter = document.querySelector('.image-counter');
+
+let currentImages = [];
+let currentImageIndex = 0;
+
+// View Gallery buttons
+const viewGalleryBtns = document.querySelectorAll('.view-gallery-btn');
+
+viewGalleryBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        const card = this.closest('.service-card');
+        const productName = card.querySelector('h3').textContent;
+        const thumbnails = card.querySelectorAll('.gallery-thumbnails img');
         
-        // Only handle smooth scroll for anchor links
-        if (href.startsWith('#')) {
-            e.preventDefault();
-            const targetId = href.substring(1);
-            const targetSection = document.getElementById(targetId);
-            
-            if (targetSection) {
-                const navbarHeight = navbar.offsetHeight;
-                const targetPosition = targetSection.offsetTop - navbarHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
+        currentImages = Array.from(thumbnails).map(img => img.src);
+        currentImageIndex = 0;
+        
+        modalTitle.textContent = productName + ' Gallery';
+        showImage(currentImageIndex);
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+function showImage(index) {
+    modalImg.src = currentImages[index];
+    imageCounter.textContent = `${index + 1} / ${currentImages.length}`;
+}
+
+closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+prevBtn.addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+    showImage(currentImageIndex);
+});
+
+nextBtn.addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+    showImage(currentImageIndex);
+});
+
+// Close modal when clicking outside the image
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Keyboard navigation for gallery
+document.addEventListener('keydown', (e) => {
+    if (modal.style.display === 'block') {
+        if (e.key === 'ArrowLeft') {
+            prevBtn.click();
+        } else if (e.key === 'ArrowRight') {
+            nextBtn.click();
+        } else if (e.key === 'Escape') {
+            closeBtn.click();
+        }
+    }
+});
+
+// Back to Top Button
+const backToTopBtn = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('visible');
+    } else {
+        backToTopBtn.classList.remove('visible');
+    }
+});
+
+// Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const offsetTop = target.offsetTop - 70; // Account for fixed header
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
         }
     });
 });
 
-// ===================================
-// Scroll to Top Button
-// ===================================
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) {
-        scrollTopBtn.classList.add('active');
-    } else {
-        scrollTopBtn.classList.remove('active');
-    }
-});
-
-scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// ===================================
 // Contact Form Submission
-// ===================================
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Simulate form submission
-    console.log('Form submitted:', formData);
-    
-    // Show success message
-    alert('Thank you for your message! We will get back to you soon.');
-    
-    // Reset form
-    contactForm.reset();
-});
+const contactForm = document.querySelector('.contact-form');
 
-// ===================================
-// Add to Cart Functionality
-// ===================================
-addToCartButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        const productCard = e.target.closest('.product-card');
-        const productName = productCard.querySelector('h3').textContent;
-        const productPrice = productCard.querySelector('.product-price').textContent;
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        // Simulate adding to cart
-        console.log('Added to cart:', { name: productName, price: productPrice });
+        // Get form data
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
         
-        // Visual feedback
-        const originalText = button.textContent;
-        button.textContent = 'Added!';
-        button.style.background = 'linear-gradient(135deg, #27ae60, #2ecc71)';
+        // Here you would typically send the data to a server
+        // For now, we'll just show an alert
+        alert('Thank you for your message! We will get back to you soon.');
         
-        setTimeout(() => {
-            button.textContent = originalText;
-            button.style.background = 'linear-gradient(135deg, var(--accent), var(--secondary))';
-        }, 1500);
+        // Reset form
+        this.reset();
     });
-});
-
-// ===================================
-// LIGHTBOX GALLERY FUNCTIONALITY
-// ===================================
-
-// Open Lightbox when product image is clicked
-productImageContainers.forEach(container => {
-    const imageWrapper = container.querySelector('.product-image-wrapper');
-    const productName = container.closest('.product-card').querySelector('h3').textContent;
-    const galleryContainer = container.querySelector('.product-gallery');
-    
-    if (imageWrapper && galleryContainer) {
-        imageWrapper.addEventListener('click', () => {
-            openLightbox(productName, galleryContainer);
-        });
-    }
-});
-
-// Open Lightbox Function
-function openLightbox(productName, galleryContainer) {
-    // Set the product title
-    lightboxTitle.textContent = `${productName} - Sample Gallery`;
-    
-    // Clear existing gallery images
-    lightboxGrid.innerHTML = '';
-    
-    // Get all gallery images
-    const galleryImages = galleryContainer.querySelectorAll('img');
-    
-    // Clone and append images to lightbox grid
-    galleryImages.forEach(img => {
-        const clonedImg = img.cloneNode(true);
-        lightboxGrid.appendChild(clonedImg);
-    });
-    
-    // Show the lightbox with animation
-    lightboxModal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent body scroll
-    
-    // Set ARIA attributes for accessibility
-    lightboxModal.setAttribute('aria-hidden', 'false');
 }
 
-// Close Lightbox Function
-function closeLightbox() {
-    lightboxModal.classList.remove('active');
-    document.body.style.overflow = ''; // Re-enable body scroll
-    
-    // Set ARIA attributes for accessibility
-    lightboxModal.setAttribute('aria-hidden', 'true');
-}
-
-// Close button click
-lightboxClose.addEventListener('click', closeLightbox);
-
-// Close when clicking on the overlay (anywhere outside the container)
-lightboxModal.addEventListener('click', (e) => {
-    if (e.target === lightboxModal || e.target.classList.contains('lightbox-overlay')) {
-        closeLightbox();
-    }
-});
-
-// Close with Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
-        closeLightbox();
-    }
-});
-
-// Prevent clicks inside the lightbox container from closing it
-document.querySelector('.lightbox-container').addEventListener('click', (e) => {
-    e.stopPropagation();
-});
-
-// ===================================
-// Intersection Observer for Scroll Animations
-// ===================================
+// Intersection Observer for scroll animations
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -234,197 +172,11 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all cards and sections for animation
-const animatedElements = document.querySelectorAll(
-    '.service-card, .project-card, .blog-card, .product-card, .about-content'
-);
-
-animatedElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
+// Observe service cards and blog cards
+const cards = document.querySelectorAll('.service-card, .blog-card');
+cards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(card);
 });
-
-// ===================================
-// Active Navigation Link Highlighting
-// ===================================
-const sections = document.querySelectorAll('section[id]');
-
-const highlightNavigation = () => {
-    const scrollY = window.pageYOffset;
-    
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - navbar.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-        
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            if (navLink) {
-                navLink.classList.add('active');
-            }
-        }
-    });
-};
-
-window.addEventListener('scroll', highlightNavigation);
-
-// ===================================
-// Form Input Validation and Enhancement
-// ===================================
-const formInputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
-
-formInputs.forEach(input => {
-    // Add focus effect
-    input.addEventListener('focus', () => {
-        input.parentElement.classList.add('focused');
-    });
-    
-    input.addEventListener('blur', () => {
-        input.parentElement.classList.remove('focused');
-        
-        // Basic validation
-        if (input.hasAttribute('required') && !input.value.trim()) {
-            input.style.borderColor = '#e74c3c';
-        } else {
-            input.style.borderColor = '#e0e0e0';
-        }
-    });
-    
-    // Email validation
-    if (input.type === 'email') {
-        input.addEventListener('blur', () => {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (input.value && !emailRegex.test(input.value)) {
-                input.style.borderColor = '#e74c3c';
-            }
-        });
-    }
-});
-
-// ===================================
-// Statistics Counter Animation
-// ===================================
-const statItems = document.querySelectorAll('.stat-item h4');
-const hasAnimated = new Set();
-
-const animateCounter = (element) => {
-    if (hasAnimated.has(element)) return;
-    
-    const target = element.textContent;
-    const numericValue = parseInt(target.replace(/\D/g, ''));
-    const suffix = target.replace(/[0-9]/g, '');
-    
-    if (isNaN(numericValue)) return;
-    
-    const duration = 2000;
-    const increment = numericValue / (duration / 16);
-    let current = 0;
-    
-    const updateCounter = () => {
-        current += increment;
-        if (current < numericValue) {
-            element.textContent = Math.floor(current) + suffix;
-            requestAnimationFrame(updateCounter);
-        } else {
-            element.textContent = target;
-            hasAnimated.add(element);
-        }
-    };
-    
-    updateCounter();
-};
-
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const statNumber = entry.target.querySelector('h4');
-            if (statNumber) {
-                animateCounter(statNumber);
-            }
-        }
-    });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.stat-item').forEach(item => {
-    statsObserver.observe(item);
-});
-
-// ===================================
-// CTA Button Hover Effect
-// ===================================
-const ctaButton = document.querySelector('.cta-button');
-if (ctaButton) {
-    ctaButton.addEventListener('mouseenter', (e) => {
-        const rect = e.target.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const ripple = document.createElement('span');
-        ripple.style.cssText = `
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            left: ${x}px;
-            top: ${y}px;
-            transform: translate(-50%, -50%) scale(0);
-            animation: ripple 0.6s ease-out;
-            pointer-events: none;
-        `;
-        
-        e.target.style.position = 'relative';
-        e.target.appendChild(ripple);
-        
-        setTimeout(() => ripple.remove(), 600);
-    });
-}
-
-// Add ripple animation
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes ripple {
-        to {
-            transform: translate(-50%, -50%) scale(20);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
-
-// ===================================
-// Prevent Default for Empty Links
-// ===================================
-document.querySelectorAll('a[href="#"]').forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-    });
-});
-
-// ===================================
-// Loading Animation (Page Load)
-// ===================================
-window.addEventListener('load', () => {
-    // Fade in hero content
-    const heroContent = document.querySelector('.hero-content');
-    if (heroContent) {
-        heroContent.style.opacity = '0';
-        heroContent.style.transform = 'translateY(30px)';
-        heroContent.style.transition = 'opacity 1s ease, transform 1s ease';
-        
-        setTimeout(() => {
-            heroContent.style.opacity = '1';
-            heroContent.style.transform = 'translateY(0)';
-        }, 100);
-    }
-});
-
-// ===================================
-// Console Log - Development Info
-// ===================================
-console.log('%cUrban Timber Suppliers Website', 'color: #8b4513; font-size: 24px; font-weight: bold;');
-console.log('%cBuilt with HTML, CSS, and JavaScript', 'color: #d2691e; font-size: 14px;');
-console.log('%cPremium Lightbox Gallery Feature Added', 'color: #2c3e50; font-size: 12px;');
