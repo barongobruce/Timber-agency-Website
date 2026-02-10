@@ -9,6 +9,13 @@ const scrollTopBtn = document.getElementById('scrollTop');
 const contactForm = document.getElementById('contactForm');
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 
+// Lightbox Elements
+const lightboxModal = document.getElementById('lightboxModal');
+const lightboxClose = document.getElementById('lightboxClose');
+const lightboxTitle = document.getElementById('lightboxTitle');
+const lightboxGrid = document.getElementById('lightboxGrid');
+const productImageContainers = document.querySelectorAll('.product-image-container');
+
 // ===================================
 // Mobile Navigation Toggle
 // ===================================
@@ -132,9 +139,82 @@ addToCartButtons.forEach(button => {
         
         setTimeout(() => {
             button.textContent = originalText;
-            button.style.background = 'linear-gradient(135deg, #8b4513, #d2691e)';
+            button.style.background = 'linear-gradient(135deg, var(--accent), var(--secondary))';
         }, 1500);
     });
+});
+
+// ===================================
+// LIGHTBOX GALLERY FUNCTIONALITY
+// ===================================
+
+// Open Lightbox when product image is clicked
+productImageContainers.forEach(container => {
+    const imageWrapper = container.querySelector('.product-image-wrapper');
+    const productName = container.closest('.product-card').querySelector('h3').textContent;
+    const galleryContainer = container.querySelector('.product-gallery');
+    
+    if (imageWrapper && galleryContainer) {
+        imageWrapper.addEventListener('click', () => {
+            openLightbox(productName, galleryContainer);
+        });
+    }
+});
+
+// Open Lightbox Function
+function openLightbox(productName, galleryContainer) {
+    // Set the product title
+    lightboxTitle.textContent = `${productName} - Sample Gallery`;
+    
+    // Clear existing gallery images
+    lightboxGrid.innerHTML = '';
+    
+    // Get all gallery images
+    const galleryImages = galleryContainer.querySelectorAll('img');
+    
+    // Clone and append images to lightbox grid
+    galleryImages.forEach(img => {
+        const clonedImg = img.cloneNode(true);
+        lightboxGrid.appendChild(clonedImg);
+    });
+    
+    // Show the lightbox with animation
+    lightboxModal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent body scroll
+    
+    // Set ARIA attributes for accessibility
+    lightboxModal.setAttribute('aria-hidden', 'false');
+}
+
+// Close Lightbox Function
+function closeLightbox() {
+    lightboxModal.classList.remove('active');
+    document.body.style.overflow = ''; // Re-enable body scroll
+    
+    // Set ARIA attributes for accessibility
+    lightboxModal.setAttribute('aria-hidden', 'true');
+}
+
+// Close button click
+lightboxClose.addEventListener('click', closeLightbox);
+
+// Close when clicking on the overlay (anywhere outside the container)
+lightboxModal.addEventListener('click', (e) => {
+    if (e.target === lightboxModal || e.target.classList.contains('lightbox-overlay')) {
+        closeLightbox();
+    }
+});
+
+// Close with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
+        closeLightbox();
+    }
+});
+
+// Prevent clicks inside the lightbox container from closing it
+document.querySelector('.lightbox-container').addEventListener('click', (e) => {
+    e.stopPropagation();
 });
 
 // ===================================
@@ -176,7 +256,6 @@ const highlightNavigation = () => {
     
     sections.forEach(section => {
         const sectionHeight = section.offsetHeight;
-        // Use dynamic navbar height for accurate offset
         const sectionTop = section.offsetTop - navbar.offsetHeight;
         const sectionId = section.getAttribute('id');
         const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
@@ -346,6 +425,6 @@ window.addEventListener('load', () => {
 // ===================================
 // Console Log - Development Info
 // ===================================
-console.log('%cTimberCraft Website', 'color: #8b4513; font-size: 24px; font-weight: bold;');
+console.log('%cUrban Timber Suppliers Website', 'color: #8b4513; font-size: 24px; font-weight: bold;');
 console.log('%cBuilt with HTML, CSS, and JavaScript', 'color: #d2691e; font-size: 14px;');
-console.log('%cNo frameworks used - Pure vanilla code', 'color: #2c3e50; font-size: 12px;');
+console.log('%cPremium Lightbox Gallery Feature Added', 'color: #2c3e50; font-size: 12px;');
