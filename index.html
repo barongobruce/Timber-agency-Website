@@ -275,12 +275,12 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="email" placeholder="Email Address" required>
-                    <input type="tel" placeholder="Phone Number">
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="submit-btn">Send Message</button>
+                <form class="contact-form" onsubmit="sendToWhatsApp(event)">
+                   <input type="text" id="name" placeholder="Full Name" required>
+                   <input type="email" id="email" placeholder="Email Address" required>
+                   <input type="tel" id="phone" placeholder="Phone Number" required>
+                   <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                   <button type="submit" class="submit-btn">Send via WhatsApp</button>
                 </form>
             </div>
         </div>

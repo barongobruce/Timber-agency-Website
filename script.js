@@ -122,3 +122,30 @@ if (mobileClose) {
         document.body.style.overflow = 'auto';
     });
 }
+function sendToWhatsApp(event) {
+    event.preventDefault(); // Prevents the page from refreshing
+
+    // 1. Get the values from the input fields
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const message = document.getElementById('message').value;
+
+    // 2. Your WhatsApp Number (Format: 254...)
+    const myNumber = "254710802808"; 
+
+    // 3. Format the message for WhatsApp
+    const encodedMessage = encodeURIComponent(
+        `*New Inquiry from Website*\n\n` +
+        `*Name:* ${name}\n` +
+        `*Email:* ${email}\n` +
+        `*Phone:* ${phone}\n` +
+        `*Message:* ${message}`
+    );
+
+    // 4. Create the WhatsApp URL
+    const whatsappUrl = `https://wa.me/${myNumber}?text=${encodedMessage}`;
+
+    // 5. Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+}
