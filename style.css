@@ -339,3 +339,36 @@ footer { background: var(--dark-color); color: var(--white); padding: 5rem 0 2re
         height: 50px;
     }
 }
+.social-icons-container {
+    margin-top: 15px;
+    text-align: left;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f4f4f4;
+    color: #333;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+/* Hover effects with brand colors */
+.social-icon.fb:hover { background: #1877F2; color: white; }
+.social-icon.ig:hover { background: #E4405F; color: white; }
+.social-icon.tt:hover { background: #000000; color: white; }
+
+.social-icon:hover {
+    transform: translateY(-3px);
+}
