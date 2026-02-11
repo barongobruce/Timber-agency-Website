@@ -132,7 +132,7 @@ function sendToWhatsApp(event) {
     const message = document.getElementById('message').value;
 
     // 2. Your WhatsApp Number (Format: 254...)
-    const myNumber = "254710802808"; 
+    const myNumber = "254724217164"; 
 
     // 3. Format the message for WhatsApp
     const encodedMessage = encodeURIComponent(
