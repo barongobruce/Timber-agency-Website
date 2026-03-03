@@ -1,4 +1,4 @@
-// Mobile Navigation Toggle
+// ── Mobile Navigation Toggle ──
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
 const header = document.querySelector('header');
@@ -8,7 +8,7 @@ burger.addEventListener('click', () => {
     burger.classList.toggle('active');
 });
 
-// Close mobile menu when clicking on a link
+// Close mobile menu when clicking a link
 const navLinks = document.querySelectorAll('.nav-links a');
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -17,7 +17,7 @@ navLinks.forEach(link => {
     });
 });
 
-// Navbar scroll effect
+// ── Navbar scroll effect ──
 window.addEventListener('scroll', () => {
     if (window.scrollY > 100) {
         header.classList.add('scrolled');
@@ -26,7 +26,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Hero Background Slideshow
+// ── Hero Background Slideshow ──
 const slides = document.querySelectorAll('.hero-slide');
 let currentSlide = 0;
 
@@ -40,7 +40,7 @@ function nextSlide() {
 
 setInterval(nextSlide, 5000);
 
-// Gallery Modal Functionality
+// ── Gallery Modal Setup ──
 const modal = document.getElementById('galleryModal');
 const modalImg = document.querySelector('.modal-image');
 const modalTitle = document.querySelector('.modal-title');
@@ -52,38 +52,64 @@ const imageCounter = document.querySelector('.image-counter');
 let currentImages = [];
 let currentImageIndex = 0;
 
-const viewGalleryBtns = document.querySelectorAll('.view-gallery-btn');
-
-viewGalleryBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-        const card = this.closest('.service-card');
-        const productName = card.querySelector('h3').textContent;
-        const thumbnails = card.querySelectorAll('.gallery-thumbnails img');
-        
-        currentImages = Array.from(thumbnails).map(img => img.src);
-        currentImageIndex = 0;
-        
-        if (modalTitle) modalTitle.textContent = productName + ' Gallery';
-        showImage(currentImageIndex);
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    });
-});
-
+// ── Show image helper ──
 function showImage(index) {
-    if (currentImages.length > 0) {
-        modalImg.src = currentImages[index];
-        if(imageCounter) imageCounter.textContent = `Image ${index + 1} of ${currentImages.length}`;
+    if (!currentImages.length) return;
+    // Clamp with wrap-around
+    currentImageIndex = (index + currentImages.length) % currentImages.length;
+    if (modalImg) {
+        modalImg.style.opacity = '0';
+        setTimeout(() => {
+            modalImg.src = currentImages[currentImageIndex];
+            modalImg.style.transition = 'opacity 0.25s ease';
+            modalImg.style.opacity = '1';
+        }, 100);
+    }
+    if (imageCounter) {
+        imageCounter.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
     }
 }
 
-// Close Functionality
+// ── Open gallery for a card ──
+function openGallery(card) {
+    const productName = card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : 'Gallery';
+    const thumbnails = card.querySelectorAll('.gallery-thumbnails img');
+    currentImages = Array.from(thumbnails).map(img => img.src);
+    currentImageIndex = 0;
+
+    if (!currentImages.length) return;
+
+    if (modalTitle) modalTitle.textContent = productName + ' Gallery';
+    showImage(0);
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+// ── Attach click events to all service cards ──
+const serviceCards = document.querySelectorAll('.service-card');
+serviceCards.forEach(card => {
+    card.addEventListener('click', () => {
+        openGallery(card);
+    });
+});
+
+// ── Overlay button (stop propagation not needed since card handles it) ──
+const overlayBtns = document.querySelectorAll('.overlay-btn');
+overlayBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const card = btn.closest('.service-card');
+        openGallery(card);
+    });
+});
+
+// ── Close modal ──
 closeBtn.addEventListener('click', () => {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
 });
 
-// Modal Overlay Close
+// Close when clicking outside modal content
 modal.addEventListener('click', (e) => {
     if (e.target === modal) {
         modal.style.display = 'none';
@@ -91,20 +117,58 @@ modal.addEventListener('click', (e) => {
     }
 });
 
-// Navigation logic - Cycles back to end if going backwards from first image
+// ── Prev / Next buttons ──
 prevBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
-    showImage(currentImageIndex);
+    showImage(currentImageIndex - 1);
 });
 
 nextBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    currentImageIndex = (currentImageIndex + 1) % currentImages.length;
-    showImage(currentImageIndex);
+    showImage(currentImageIndex + 1);
 });
 
-// Back to Top Button
+// ── Keyboard navigation ──
+document.addEventListener('keydown', (e) => {
+    if (modal.style.display !== 'block') return;
+    if (e.key === 'ArrowRight') showImage(currentImageIndex + 1);
+    if (e.key === 'ArrowLeft')  showImage(currentImageIndex - 1);
+    if (e.key === 'Escape') {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// ── Touch Swipe Support ──
+(function addSwipeSupport() {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    const SWIPE_THRESHOLD = 50;
+
+    modal.addEventListener('touchstart', (e) => {
+        const t = e.changedTouches[0];
+        touchStartX = t.clientX;
+        touchStartY = t.clientY;
+    }, { passive: true });
+
+    modal.addEventListener('touchend', (e) => {
+        const t = e.changedTouches[0];
+        const dx = t.clientX - touchStartX;
+        const dy = t.clientY - touchStartY;
+
+        if (Math.abs(dx) < SWIPE_THRESHOLD) return;
+        // Ignore mostly vertical swipes
+        if (Math.abs(dy) > Math.abs(dx)) return;
+
+        if (dx < 0) {
+            showImage(currentImageIndex + 1); // swipe left = next
+        } else {
+            showImage(currentImageIndex - 1); // swipe right = prev
+        }
+    }, { passive: true });
+})();
+
+// ── Back to Top Button ──
 const backToTopBtn = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {
     if (window.pageYOffset > 300) {
@@ -113,28 +177,18 @@ window.addEventListener('scroll', () => {
         backToTopBtn.classList.remove('visible');
     }
 });
-// Add this at the bottom to handle the new "Close & Return" button
-const mobileClose = document.getElementById('mobileCloseBtn');
 
-if (mobileClose) {
-    mobileClose.addEventListener('click', () => {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-}
+// ── WhatsApp Contact Form ──
 function sendToWhatsApp(event) {
-    event.preventDefault(); // Prevents the page from refreshing
+    event.preventDefault();
 
-    // 1. Get the values from the input fields
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
+    const name    = document.getElementById('name').value;
+    const email   = document.getElementById('email').value;
+    const phone   = document.getElementById('phone').value;
     const message = document.getElementById('message').value;
 
-    // 2. Your WhatsApp Number (Format: 254...)
-    const myNumber = "254724217164"; 
+    const myNumber = "254724217164";
 
-    // 3. Format the message for WhatsApp
     const encodedMessage = encodeURIComponent(
         `*New Inquiry from Website*\n\n` +
         `*Name:* ${name}\n` +
@@ -143,9 +197,6 @@ function sendToWhatsApp(event) {
         `*Message:* ${message}`
     );
 
-    // 4. Create the WhatsApp URL
     const whatsappUrl = `https://wa.me/${myNumber}?text=${encodedMessage}`;
-
-    // 5. Open WhatsApp in a new tab
     window.open(whatsappUrl, '_blank');
 }
